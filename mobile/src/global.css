@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  * {
+    @apply font-roboto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-dm-sans font-bold;
+  }
+
+  body {
+    @apply bg-neutral-bg text-neutral-text;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary px-4 py-3 rounded-md text-white font-roboto font-medium text-center min-h-11;
+  }
+
+  .btn-secondary {
+    @apply bg-neutral-surface-light px-4 py-3 rounded-md text-white font-roboto font-medium text-center min-h-11;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent border border-neutral-border px-4 py-3 rounded-md text-white font-roboto font-medium text-center min-h-11;
+  }
+
+  .card {
+    @apply bg-neutral-surface rounded-md shadow-lg p-4;
+  }
+
+  .input {
+    @apply bg-neutral-surface border border-neutral-border rounded-md px-3 py-2 text-neutral-text placeholder-neutral-text-tertiary;
+  }
+
+  .chip {
+    @apply px-3 py-1 rounded-full bg-neutral-surface-light text-neutral-text text-caption font-medium;
+  }
+}
+
