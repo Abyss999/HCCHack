@@ -19,10 +19,26 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const colors = useColors();
 
-  const bgColor = {
-    primary: colors.primary,
-    secondary: colors.surfaceLight,
-    ghost: "transparent",
+  const styles = {
+    primary: {
+      backgroundColor: colors.primary,
+      borderWidth: 0,
+      shadowColor: colors.primary,
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.3,
+      shadowRadius: 8,
+      elevation: 4,
+    },
+    secondary: {
+      backgroundColor: "transparent",
+      borderWidth: 1.5,
+      borderColor: colors.primary,
+    },
+    ghost: {
+      backgroundColor: "transparent",
+      borderWidth: 1,
+      borderColor: colors.border,
+    },
   }[variant];
 
   return (
@@ -30,21 +46,19 @@ export const Button: React.FC<ButtonProps> = ({
       onPress={onPress}
       disabled={disabled || loading}
       style={{
-        borderRadius: 8,
+        borderRadius: 10,
         paddingHorizontal: 16,
-        paddingVertical: 12,
+        paddingVertical: 14,
         minHeight: 44,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: bgColor,
-        borderWidth: variant === "ghost" ? 1 : 0,
-        borderColor: variant === "ghost" ? colors.border : undefined,
         opacity: disabled || loading ? 0.5 : 1,
+        ...styles,
       }}
     >
       <Text
         className="font-roboto font-medium text-body"
-        style={{ color: variant === "ghost" ? colors.text : "#ffffff" }}
+        style={{ color: variant === "primary" ? "#ffffff" : variant === "secondary" ? colors.primary : colors.text }}
       >
         {loading ? "Loading..." : label}
       </Text>
@@ -79,10 +93,10 @@ export const Input: React.FC<InputProps> = ({
       keyboardType={keyboardType}
       style={{
         color: colors.text,
-        fontFamily: "Roboto",
+        fontFamily: "IBM Plex Mono",
         paddingVertical: 12,
-        paddingHorizontal: 12,
-        borderRadius: 8,
+        paddingHorizontal: 14,
+        borderRadius: 10,
         backgroundColor: colors.inputBg,
         borderWidth: 1,
         borderColor: colors.inputBorder,
@@ -105,8 +119,10 @@ export const Card: React.FC<CardProps> = ({ children, onPress }) => {
       onPress={onPress}
       style={{
         backgroundColor: colors.surface,
-        borderRadius: 16,
-        padding: 16,
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: colors.cardBorder,
+        padding: 14,
         marginBottom: 16,
       }}
     >
@@ -197,15 +213,17 @@ export const Chip: React.FC<ChipProps> = ({ label, selected = false, onPress }) 
     <Pressable
       onPress={onPress}
       style={{
-        paddingHorizontal: 12,
-        paddingVertical: 4,
-        borderRadius: 999,
-        backgroundColor: selected ? colors.primary : colors.surfaceLight,
+        paddingHorizontal: 10,
+        paddingVertical: 6,
+        borderRadius: 8,
+        backgroundColor: selected ? "rgba(217, 119, 87, 0.2)" : colors.chipBg,
+        borderWidth: 1,
+        borderColor: selected ? colors.primary : colors.chipBorder,
       }}
     >
       <Text
         className="text-caption font-medium"
-        style={{ color: selected ? "#ffffff" : colors.text }}
+        style={{ color: selected ? "#ffffff" : "rgba(255,255,255,0.75)" }}
       >
         {label}
       </Text>

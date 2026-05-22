@@ -25,9 +25,9 @@ module.exports = {
         },
         // Neutrals — Dark mode (used with dark: prefix)
         night: {
-          bg: "#1a1a1a",
-          surface: "#262626",
-          "surface-light": "#3d3d3d",
+          bg: "#0a0a0a",
+          surface: "#1a1a1a",
+          "surface-light": "#262626",
           text: "#ffffff",
           "text-secondary": "#b3b3b3",
           "text-tertiary": "#808080",
@@ -47,11 +47,13 @@ module.exports = {
       fontSize: {
         "display-1": ["40px", { lineHeight: "48px" }],
         "display-2": ["32px", { lineHeight: "40px" }],
-        "h1": ["24px", { lineHeight: "32px" }],
+        "h1": ["26px", { lineHeight: "32px" }],
         "h2": ["20px", { lineHeight: "28px" }],
-        "body": ["16px", { lineHeight: "24px" }],
+        "h3": ["18px", { lineHeight: "26px" }],
+        "body": ["15px", { lineHeight: "24px" }],
         "body-sm": ["14px", { lineHeight: "20px" }],
         "caption": ["12px", { lineHeight: "16px" }],
+        "caption-sm": ["11px", { lineHeight: "14px" }],
       },
       spacing: {
         "1": "4px",

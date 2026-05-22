@@ -95,12 +95,14 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         <View
           style={{
             backgroundColor: colors.surface,
-            borderRadius: 20,
+            borderRadius: 12,
+            borderWidth: 1,
+            borderColor: colors.cardBorder,
             overflow: "hidden",
             shadowColor: "#000",
-            shadowOffset: { width: 0, height: 6 },
-            shadowOpacity: 0.18,
-            shadowRadius: 16,
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.3,
+            shadowRadius: 12,
             elevation: 8,
           }}
         >
@@ -203,13 +205,15 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
                 <View
                   key={idx}
                   style={{
-                    paddingHorizontal: 8,
+                    paddingHorizontal: 9,
                     paddingVertical: 4,
-                    borderRadius: 999,
-                    backgroundColor: colors.surfaceLight,
+                    borderRadius: 6,
+                    backgroundColor: colors.chipBg,
+                    borderWidth: 1,
+                    borderColor: colors.chipBorder,
                   }}
                 >
-                  <Text style={{ color: colors.textSecondary }} className="text-caption">
+                  <Text style={{ color: "rgba(255,255,255,0.65)" }} className="text-caption-sm font-medium">
                     {cuisine}
                   </Text>
                 </View>

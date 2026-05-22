@@ -104,7 +104,9 @@ export const MatchModal: React.FC<MatchModalProps> = ({ visible, restaurant, onC
             animatedStyle,
             {
               width: "85%",
-              borderRadius: 24,
+              borderRadius: 16,
+              borderWidth: 1,
+              borderColor: colors.cardBorder,
               backgroundColor: colors.surface,
               overflow: "hidden",
             },
@@ -151,13 +153,15 @@ export const MatchModal: React.FC<MatchModalProps> = ({ visible, restaurant, onC
                   <View
                     key={idx}
                     style={{
-                      paddingHorizontal: 8,
+                      paddingHorizontal: 9,
                       paddingVertical: 4,
-                      borderRadius: 999,
-                      backgroundColor: colors.surfaceLight,
+                      borderRadius: 6,
+                      backgroundColor: colors.chipBg,
+                      borderWidth: 1,
+                      borderColor: colors.chipBorder,
                     }}
                   >
-                    <Text style={{ color: colors.textSecondary }} className="text-caption">
+                    <Text style={{ color: "rgba(255,255,255,0.65)" }} className="text-caption-sm font-medium">
                       {cuisine}
                     </Text>
                   </View>
@@ -169,10 +173,15 @@ export const MatchModal: React.FC<MatchModalProps> = ({ visible, restaurant, onC
               onPress={onClose}
               style={{
                 backgroundColor: colors.primary,
-                borderRadius: 8,
-                paddingVertical: 12,
+                borderRadius: 10,
+                paddingVertical: 14,
                 alignItems: "center",
                 justifyContent: "center",
+                shadowColor: colors.primary,
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 0.3,
+                shadowRadius: 8,
+                elevation: 4,
               }}
             >
               <Text className="text-white font-roboto font-medium">Continue</Text>

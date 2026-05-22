@@ -99,6 +99,8 @@ export default function LobbyScreen() {
           paddingVertical: 32,
           backgroundColor: colors.surface,
           borderRadius: 12,
+          borderWidth: 1,
+          borderColor: colors.cardBorder,
           marginHorizontal: 16,
           marginBottom: 32,
         }}>
@@ -129,7 +131,9 @@ export default function LobbyScreen() {
                     gap: 12,
                     padding: 12,
                     backgroundColor: colors.surface,
-                    borderRadius: 12,
+                    borderRadius: 10,
+                    borderWidth: 1,
+                    borderColor: colors.cardBorder,
                   }}
                 >
                   <Avatar
@@ -159,12 +163,17 @@ export default function LobbyScreen() {
               onPress={handleStartSwiping}
               disabled={loading || members.length < 2}
               style={{
-                paddingVertical: 16,
-                borderRadius: 12,
+                paddingVertical: 14,
+                borderRadius: 10,
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: members.length >= 2 ? colors.primary : colors.textTertiary,
                 opacity: loading || members.length < 2 ? 0.5 : 1,
+                shadowColor: colors.primary,
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: members.length >= 2 ? 0.3 : 0,
+                shadowRadius: 8,
+                elevation: members.length >= 2 ? 4 : 0,
               }}
             >
               <Text className="text-white font-dm-sans text-h2">

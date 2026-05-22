@@ -52,7 +52,16 @@ HCCHack/
 │   ├── .env.example
 │   └── requirements.txt
 └── mobile/
-    ├── app/                         # expo-router (placeholder for now)
+    ├── src/
+    │   ├── app/                     # expo-router file-based routing
+    │   │   ├── (tabs)/              # bottom tab navigator (index, profile)
+    │   │   ├── auth/                # login.tsx, signup.tsx
+    │   │   ├── session/             # lobby.tsx, swipe.tsx, results.tsx
+    │   │   └── _layout.tsx          # root layout + auth gate
+    │   ├── components/              # RestaurantCard, SwipeStack, MatchModal, etc.
+    │   ├── context/                 # React context providers
+    │   ├── hooks/                   # useAuth, useColors, etc.
+    │   └── global.css               # NativeWind global styles
     ├── tailwind.config.js
     └── package.json
 ```
@@ -131,6 +140,8 @@ All security primitives live in `backend/security.py` and are wired in `main.py`
 - **WS events** are JSON `{type, payload}` envelopes. Event types: `member_joined`, `swipe_progress`, `instant_match`, `phase_change`, `top3_ready`.
 - **Session codes** are 4 uppercase alphanumeric chars, regenerated on collision.
 - **Swipe phase** has a soft floor of 5 and a hard ceiling of 10 swipes per user before Top 3 is forced.
+- **Email normalization** — always `.lower()` emails before DB reads/writes (`AuthService.signup` and `AuthService.login`). The mobile layer also trims and lowercases before sending so the backend never sees mixed-case addresses.
+- **Mobile text inputs** — email fields must have `autoCapitalize="none"` `autoCorrect={false}` `autoComplete="email"` `textContentType="emailAddress"`. Password fields use `textContentType="password"` (login) or `textContentType="newPassword"` (signup) with matching `autoComplete` values. Frontend password min-length must match the backend schema (`min_length=8`).
 
 ## Pointers
 

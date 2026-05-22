@@ -75,9 +75,11 @@ export default function ResultsScreen() {
             <View
               key={result.restaurant.id}
               style={{
-                borderRadius: 16,
+                borderRadius: 12,
                 overflow: "hidden",
                 backgroundColor: colors.surface,
+                borderWidth: 1,
+                borderColor: colors.cardBorder,
               }}
             >
               {/* Image + rank badge */}
@@ -140,10 +142,9 @@ export default function ResultsScreen() {
                       {result.score_pct.toFixed(0)}%
                     </Text>
                   </View>
-                  <View style={{ height: 6, backgroundColor: colors.surfaceLight, borderRadius: 999, overflow: "hidden" }}>
+                  <View style={{ height: 3, backgroundColor: colors.progressBg, borderRadius: 2, overflow: "hidden" }}>
                     <View
-                      className="h-full bg-primary rounded-full"
-                      style={{ width: `${result.score_pct}%` }}
+                      style={{ height: "100%", backgroundColor: colors.primary, borderRadius: 2, width: `${result.score_pct}%` }}
                     />
                   </View>
                   <Text style={{ color: colors.textTertiary }} className="text-caption mt-1">
@@ -157,13 +158,15 @@ export default function ResultsScreen() {
                     <View
                       key={cuisine}
                       style={{
-                        paddingHorizontal: 8,
+                        paddingHorizontal: 9,
                         paddingVertical: 4,
-                        borderRadius: 999,
-                        backgroundColor: colors.surfaceLight,
+                        borderRadius: 6,
+                        backgroundColor: colors.chipBg,
+                        borderWidth: 1,
+                        borderColor: colors.chipBorder,
                       }}
                     >
-                      <Text style={{ color: colors.textSecondary }} className="text-caption">
+                      <Text style={{ color: "rgba(255,255,255,0.65)" }} className="text-caption-sm font-medium">
                         {cuisine}
                       </Text>
                     </View>
@@ -179,11 +182,16 @@ export default function ResultsScreen() {
           <Pressable
             onPress={handleReturnHome}
             style={{
-              paddingVertical: 12,
-              borderRadius: 12,
+              paddingVertical: 14,
+              borderRadius: 10,
               alignItems: "center",
               justifyContent: "center",
               backgroundColor: colors.primary,
+              shadowColor: colors.primary,
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.3,
+              shadowRadius: 8,
+              elevation: 4,
             }}
           >
             <Text className="text-white font-dm-sans text-h2">

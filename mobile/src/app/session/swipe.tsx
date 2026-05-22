@@ -105,10 +105,9 @@ export default function SwipeScreen() {
           )}
         </View>
 
-        <View style={{ height: 6, backgroundColor: colors.surface, borderRadius: 999, overflow: "hidden" }}>
+        <View style={{ height: 3, backgroundColor: colors.progressBg, borderRadius: 2, overflow: "hidden" }}>
           <View
-            className="h-full bg-primary rounded-full"
-            style={{ width: `${(swipeCount / maxSwipes) * 100}%` }}
+            style={{ height: "100%", backgroundColor: colors.primary, borderRadius: 2, width: `${(swipeCount / maxSwipes) * 100}%` }}
           />
         </View>
 
@@ -116,11 +115,10 @@ export default function SwipeScreen() {
           {Object.entries(memberProgress).map(([userId, count]) => (
             <View
               key={userId}
-              style={{ flex: 1, height: 4, backgroundColor: colors.surface, borderRadius: 999, overflow: "hidden" }}
+              style={{ flex: 1, height: 2, backgroundColor: "rgba(217, 119, 87, 0.15)", borderRadius: 1, overflow: "hidden" }}
             >
               <View
-                className="h-full bg-primary-light"
-                style={{ width: `${(count / maxSwipes) * 100}%` }}
+                style={{ height: "100%", backgroundColor: colors.primaryLight, borderRadius: 1, width: `${(count / maxSwipes) * 100}%` }}
               />
             </View>
           ))}

@@ -90,6 +90,11 @@ export default function HomeScreen() {
               justifyContent: "center",
               backgroundColor: colors.primary,
               opacity: loading ? 0.5 : 1,
+              shadowColor: colors.primary,
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.3,
+              shadowRadius: 12,
+              elevation: 4,
             }}
           >
             <Text className="font-dm-sans text-h2 text-white mb-1">
@@ -147,7 +152,7 @@ export default function HomeScreen() {
                 letterSpacing: 8,
                 paddingVertical: 12,
                 paddingHorizontal: 12,
-                borderRadius: 8,
+                borderRadius: 10,
                 backgroundColor: colors.inputBg,
                 borderWidth: 1.5,
                 borderColor: colors.primary,

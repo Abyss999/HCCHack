@@ -36,16 +36,16 @@ export default function SignupScreen() {
       return;
     }
 
-    if (password.length < 6) {
+    if (password.length < 8) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
-      Toast.show({ type: "error", text1: "Password too short", text2: "At least 6 characters required" });
+      Toast.show({ type: "error", text1: "Password too short", text2: "At least 8 characters required" });
       return;
     }
 
     try {
       setLoading(true);
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-      await signup(email, password, name);
+      await signup(email.trim().toLowerCase(), password, name.trim());
     } catch {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
       Toast.show({ type: "error", text1: "Signup failed", text2: "Please try again" });
@@ -56,10 +56,10 @@ export default function SignupScreen() {
 
   const inputStyle = {
     color: colors.text,
-    fontFamily: "Roboto",
+    fontFamily: "IBM Plex Mono",
     paddingVertical: 12,
-    paddingHorizontal: 12,
-    borderRadius: 8,
+    paddingHorizontal: 14,
+    borderRadius: 10,
     backgroundColor: colors.inputBg,
     borderWidth: 1,
     borderColor: colors.inputBorder,
@@ -105,6 +105,10 @@ export default function SignupScreen() {
                 value={email}
                 onChangeText={setEmail}
                 keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+                autoComplete="email"
+                textContentType="emailAddress"
                 editable={!loading}
                 style={inputStyle}
               />
@@ -120,6 +124,8 @@ export default function SignupScreen() {
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
+                autoComplete="new-password"
+                textContentType="newPassword"
                 editable={!loading}
                 style={inputStyle}
               />
@@ -135,6 +141,8 @@ export default function SignupScreen() {
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
                 secureTextEntry
+                autoComplete="new-password"
+                textContentType="newPassword"
                 editable={!loading}
                 style={inputStyle}
               />
@@ -147,12 +155,17 @@ export default function SignupScreen() {
             disabled={loading}
             style={{
               backgroundColor: colors.primary,
-              paddingVertical: 12,
-              borderRadius: 8,
+              paddingVertical: 14,
+              borderRadius: 10,
               alignItems: "center",
               justifyContent: "center",
               marginBottom: 16,
               opacity: loading ? 0.5 : 1,
+              shadowColor: colors.primary,
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.3,
+              shadowRadius: 8,
+              elevation: 4,
             }}
           >
             <Text className="text-white font-roboto font-medium text-body">
