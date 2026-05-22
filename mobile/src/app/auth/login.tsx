@@ -4,99 +4,96 @@ import {
   Text,
   TextInput,
   Pressable,
-  Alert,
   ScrollView,
   SafeAreaView,
 } from "react-native";
 import { useRouter } from "expo-router";
+import * as Haptics from "expo-haptics";
+import Toast from "react-native-toast-message";
 import { useAuth } from "@/hooks/useAuth";
+import { useColors } from "@/hooks/useColors";
 
 export default function LoginScreen() {
   const router = useRouter();
   const { login } = useAuth();
+  const colors = useColors();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert("Error", "Please fill in all fields");
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+      Toast.show({ type: "error", text1: "Missing fields", text2: "Please fill in all fields" });
       return;
     }
 
     try {
       setLoading(true);
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
       await login(email, password);
-    } catch (error) {
-      Alert.alert("Login Failed", "Invalid email or password");
+    } catch {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      Toast.show({ type: "error", text1: "Login failed", text2: "Invalid email or password" });
     } finally {
       setLoading(false);
     }
   };
 
+  const inputStyle = {
+    color: colors.text,
+    fontFamily: "Roboto",
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    backgroundColor: colors.inputBg,
+    borderWidth: 1,
+    borderColor: colors.inputBorder,
+  };
+
   return (
-    <SafeAreaView className="flex-1 bg-neutral-bg">
-      <ScrollView className="flex-1 px-4">
-        <View className="flex-1 justify-center py-12">
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.bg }}>
+      <ScrollView style={{ flex: 1, paddingHorizontal: 16 }}>
+        <View style={{ flex: 1, justifyContent: "center", paddingVertical: 48 }}>
           {/* Header */}
-          <View className="mb-12">
+          <View style={{ marginBottom: 48 }}>
             <Text className="font-dm-sans text-display-1 text-primary mb-2">
               DishMatch
             </Text>
-            <Text className="text-body text-neutral-text-secondary">
+            <Text style={{ color: colors.textSecondary }} className="text-body">
               Find your perfect meal together
             </Text>
           </View>
 
           {/* Form */}
-          <View className="gap-4 mb-6">
+          <View style={{ gap: 16, marginBottom: 24 }}>
             <View>
-              <Text className="text-body-sm text-neutral-text-secondary mb-2">
+              <Text style={{ color: colors.textSecondary }} className="text-body-sm mb-2">
                 Email
               </Text>
               <TextInput
-                className="input"
                 placeholder="you@example.com"
-                placeholderTextColor="#808080"
+                placeholderTextColor={colors.placeholderText}
                 value={email}
                 onChangeText={setEmail}
                 keyboardType="email-address"
                 editable={!loading}
-                style={{
-                  color: "#ffffff",
-                  fontFamily: "Roboto",
-                  paddingVertical: 12,
-                  paddingHorizontal: 12,
-                  borderRadius: 8,
-                  backgroundColor: "#262626",
-                  borderWidth: 1,
-                  borderColor: "#404040",
-                }}
+                style={inputStyle}
               />
             </View>
 
             <View>
-              <Text className="text-body-sm text-neutral-text-secondary mb-2">
+              <Text style={{ color: colors.textSecondary }} className="text-body-sm mb-2">
                 Password
               </Text>
               <TextInput
-                className="input"
                 placeholder="••••••••"
-                placeholderTextColor="#808080"
+                placeholderTextColor={colors.placeholderText}
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
                 editable={!loading}
-                style={{
-                  color: "#ffffff",
-                  fontFamily: "Roboto",
-                  paddingVertical: 12,
-                  paddingHorizontal: 12,
-                  borderRadius: 8,
-                  backgroundColor: "#262626",
-                  borderWidth: 1,
-                  borderColor: "#404040",
-                }}
+                style={inputStyle}
               />
             </View>
           </View>
@@ -105,11 +102,14 @@ export default function LoginScreen() {
           <Pressable
             onPress={handleLogin}
             disabled={loading}
-            className={`py-3 rounded-md items-center justify-center mb-4 ${
-              loading ? "opacity-50" : ""
-            }`}
             style={{
-              backgroundColor: "#d97757",
+              backgroundColor: colors.primary,
+              paddingVertical: 12,
+              borderRadius: 8,
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: 16,
+              opacity: loading ? 0.5 : 1,
             }}
           >
             <Text className="text-white font-roboto font-medium text-body">
@@ -118,8 +118,8 @@ export default function LoginScreen() {
           </Pressable>
 
           {/* Sign up link */}
-          <View className="flex-row justify-center gap-1">
-            <Text className="text-body text-neutral-text">
+          <View style={{ flexDirection: "row", justifyContent: "center", gap: 4 }}>
+            <Text style={{ color: colors.text }} className="text-body">
               Don't have an account?
             </Text>
             <Pressable onPress={() => router.push("/auth/signup")}>
