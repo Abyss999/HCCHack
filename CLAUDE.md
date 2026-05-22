@@ -6,14 +6,14 @@ Group restaurant decision app. Friends join a session via a 4-digit code, swipe 
 
 | Layer | Tech |
 |---|---|
-| Mobile | React Native (Expo) + NativeWind |
+| Mobile | SwiftUI (iOS 16+) |
 | Backend | FastAPI (Python, async) |
 | Database | MongoDB |
 | ODM | Beanie (Motor + Pydantic) |
 | Auth | JWT access + refresh via `python-jose`, bcrypt via `passlib` |
 | Realtime | FastAPI WebSockets |
 | Restaurants | Google Places API |
-| Push | Expo Push API |
+| Push | APNs (UNUserNotificationCenter) |
 | Local dev | Docker Compose (mongo + mongo-express) |
 | Production target | DigitalOcean (App Platform or Droplet running the same container stack) |
 
@@ -51,19 +51,26 @@ HCCHack/
 │   ├── Dockerfile
 │   ├── .env.example
 │   └── requirements.txt
-└── mobile/
-    ├── src/
-    │   ├── app/                     # expo-router file-based routing
-    │   │   ├── (tabs)/              # bottom tab navigator (index, profile)
-    │   │   ├── auth/                # login.tsx, signup.tsx
-    │   │   ├── session/             # lobby.tsx, swipe.tsx, results.tsx
-    │   │   └── _layout.tsx          # root layout + auth gate
-    │   ├── components/              # RestaurantCard, SwipeStack, MatchModal, etc.
-    │   ├── context/                 # React context providers
-    │   ├── hooks/                   # useAuth, useColors, etc.
-    │   └── global.css               # NativeWind global styles
-    ├── tailwind.config.js
-    └── package.json
+└── mobile-swift/                    # SwiftUI iOS app (iOS 16+)
+    ├── DishMatch.xcodeproj
+    ├── project.yml                  # xcodegen spec
+    └── DishMatch/
+        ├── App/                     # DishMatchApp, AppDelegate, ContentCoordinator + navigators
+        ├── Core/
+        │   ├── Auth/                # AuthStore (@ObservableObject), KeychainService
+        │   ├── Network/             # APIClient (URLSession), NetworkError
+        │   ├── WebSocket/           # WebSocketService (URLSessionWebSocketTask, auto-reconnect)
+        │   ├── Notifications/       # PushNotificationService (APNs)
+        │   └── Theme/               # AppTheme (30+ tokens), ThemeStore
+        ├── Models/                  # Codable structs: User, Session, Restaurant, Swipe, WSEvent
+        ├── ViewModels/              # @ObservableObject: Auth, Home, Session, Swipe, Results, Profile
+        ├── Views/
+        │   ├── Auth/                # LoginView, SignupView
+        │   ├── Tabs/                # RootTabView, HomeView, ProfileView
+        │   ├── Session/             # LobbyView, SwipeView, ResultsView, MatchOverlay (confetti)
+        │   └── Components/          # RestaurantCard (DragGesture), SwipeStack, CodeDisplay, etc.
+        ├── Config/                  # Config.swift + Debug/Release xcconfig (API_BASE_URL)
+        └── Resources/               # Assets.xcassets, Info.plist
 ```
 
 ## Architectural decisions
@@ -86,8 +93,9 @@ pip install -r requirements.txt
 cp .env.example .env                    # then fill values
 uvicorn main:app --reload               # http://localhost:8000/docs
 
-# from mobile/
-npx expo start
+# mobile: open in Xcode
+open mobile-swift/DishMatch.xcodeproj  # then Cmd+R to run on simulator
+# API_BASE_URL in mobile-swift/DishMatch/Config/Debug.xcconfig defaults to localhost:8000
 ```
 
 ## MongoDB target switching
