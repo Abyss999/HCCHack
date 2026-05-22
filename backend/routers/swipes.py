@@ -1,8 +1,9 @@
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from pymongo.errors import DuplicateKeyError
 
+from config import get_settings
 from deps import get_current_user
 from models.restaurant import Restaurant
 from models.session import Session
@@ -10,12 +11,14 @@ from models.swipe import Swipe
 from models.user import User
 from schemas.restaurant import RestaurantOut
 from schemas.swipe import ResultsOut, SwipeAck, SwipeIn, TopResult
+from security import limiter
 from services.matching_service import MatchingService, get_matching_service
 from services.notification_service import NotificationService, get_notification_service
 from services.session_service import SessionService, get_session_service
 from ws.manager import ConnectionManager, get_connection_manager
 
 router = APIRouter(tags=["swipes"])
+_settings = get_settings()
 
 
 def _restaurant_out(r: Restaurant) -> RestaurantOut:
@@ -23,7 +26,9 @@ def _restaurant_out(r: Restaurant) -> RestaurantOut:
 
 
 @router.post("/sessions/{session_id}/swipe", response_model=SwipeAck)
+@limiter.limit(_settings.rate_limit_swipe)
 async def submit_swipe(
+    request: Request,
     session_id: UUID,
     data: SwipeIn,
     current: User = Depends(get_current_user),

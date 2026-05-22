@@ -1,16 +1,22 @@
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, WebSocket, WebSocketDisconnect, status
+from fastapi import APIRouter, Depends, Path, Request, WebSocket, WebSocketDisconnect, status
 
+from config import get_settings
 from deps import get_current_user
 from models.session import Session
 from models.user import User
 from schemas.session import MemberOut, SessionCreate, SessionOut
+from security import limiter
 from services.auth_service import AuthService, get_auth_service
 from services.session_service import SessionService, get_session_service
 from ws.manager import ConnectionManager, get_connection_manager
 
 router = APIRouter(tags=["sessions"])
+_settings = get_settings()
+
+# Allow either case in the URL; service normalizes to upper.
+SESSION_CODE_PATTERN = r"^[A-Za-z0-9]{4}$"
 
 
 def _to_out(session: Session) -> SessionOut:
@@ -29,7 +35,9 @@ def _to_out(session: Session) -> SessionOut:
 
 
 @router.post("/sessions", response_model=SessionOut, status_code=status.HTTP_201_CREATED)
+@limiter.limit(_settings.rate_limit_session_create)
 async def create_session(
+    request: Request,
     data: SessionCreate,
     current: User = Depends(get_current_user),
     sessions: SessionService = Depends(get_session_service),
@@ -40,7 +48,7 @@ async def create_session(
 
 @router.get("/sessions/{code}", response_model=SessionOut)
 async def get_session_by_code(
-    code: str,
+    code: str = Path(..., pattern=SESSION_CODE_PATTERN),
     _: User = Depends(get_current_user),
     sessions: SessionService = Depends(get_session_service),
 ) -> SessionOut:
@@ -49,7 +57,9 @@ async def get_session_by_code(
 
 
 @router.post("/sessions/{session_id}/join", response_model=SessionOut)
+@limiter.limit(_settings.rate_limit_session_join)
 async def join_session(
+    request: Request,
     session_id: UUID,
     current: User = Depends(get_current_user),
     sessions: SessionService = Depends(get_session_service),
@@ -104,6 +114,9 @@ async def session_ws(
     sessions: SessionService = Depends(get_session_service),
     cm: ConnectionManager = Depends(get_connection_manager),
 ) -> None:
+    if not token or len(token) > 4096:
+        await websocket.close(code=4400)
+        return
     try:
         user_id = auth.decode_token(token, expected_type="access")
     except Exception:  # noqa: BLE001
@@ -126,8 +139,11 @@ async def session_ws(
     await cm.connect(session_id, user_id, websocket)
     try:
         while True:
-            # Server-driven; we ignore client payloads but keep the loop alive.
-            await websocket.receive_text()
+            # Server-driven channel: cap inbound to prevent unbounded buffering.
+            msg = await websocket.receive_text()
+            if len(msg) > 1024:
+                await websocket.close(code=1009)
+                break
     except WebSocketDisconnect:
         pass
     finally:

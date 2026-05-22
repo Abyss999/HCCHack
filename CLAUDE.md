@@ -46,6 +46,7 @@ HCCHack/
 │   │   └── notification_service.py
 │   ├── ws/
 │   │   └── manager.py               # ConnectionManager
+│   ├── security.py                  # rate limiter, headers, size limits, startup checks
 │   ├── docker-compose.yml
 │   ├── Dockerfile
 │   ├── .env.example
@@ -79,6 +80,47 @@ uvicorn main:app --reload               # http://localhost:8000/docs
 # from mobile/
 npx expo start
 ```
+
+## Security model
+
+All security primitives live in `backend/security.py` and are wired in `main.py`.
+
+**Middleware stack (outer → inner):**
+1. `TrustedHostMiddleware` — only enabled when `ALLOWED_HOSTS` is not `["*"]`.
+2. `GZipMiddleware` — compresses responses ≥ 1 KB.
+3. `SecurityHeadersMiddleware` — sets `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: no-referrer`, `Permissions-Policy` (deny geo/mic/cam), `Strict-Transport-Security`, and a hardened `Content-Security-Policy` (`default-src 'none'; frame-ancestors 'none'`).
+4. `RequestSizeLimitMiddleware` — rejects requests > `MAX_REQUEST_BODY_BYTES` (default 1 MB) with 413.
+5. `SlowAPIMiddleware` + per-route `@limiter.limit(...)` — rate limits keyed per-user when authenticated (`request.state.user_id`) and per-IP otherwise.
+6. `CORSMiddleware` — `allow_credentials` is auto-`False` whenever origins is wildcard (browsers reject the combination anyway).
+
+**Rate limit knobs (env, slowapi syntax):**
+- `RATE_LIMIT_DEFAULT` — fallback for unspecified routes (100/min)
+- `RATE_LIMIT_SIGNUP` — 5/min, `RATE_LIMIT_LOGIN` — 10/min, `RATE_LIMIT_REFRESH` — 30/min
+- `RATE_LIMIT_SESSION_CREATE` — 10/min, `RATE_LIMIT_SESSION_JOIN` — 20/min
+- `RATE_LIMIT_SWIPE` — 60/min (≈ 1/sec)
+- `RATE_LIMIT_RESTAURANTS` — 20/min (protects the Google Places bill)
+- `RATE_LIMIT_PUSH_TOKEN` — 10/min
+- `RATE_LIMIT_ENABLED=false` disables everything for local debugging
+
+**Startup checks (`perform_startup_checks`):** in `ENVIRONMENT=production` the app *refuses to boot* if `JWT_SECRET` is the placeholder or shorter than 32 chars, or if `CORS_ORIGINS` contains `*`. In dev, the same conditions log a warning.
+
+**Input hardening:**
+- All HTTP payloads are Pydantic models — no raw dicts reach Mongo.
+- Session codes are validated by regex (`^[A-Za-z0-9]{4}$`) both at the path-param layer and inside `SessionService.find_by_code`.
+- Sessions are capped at `MAX_SESSION_MEMBERS` (default 12).
+- Free-text fields have explicit `max_length` caps (e.g., `location_label` ≤ 120, push token ≤ 512, preference list lengths ≤ 20).
+- Password minimum length: 8.
+
+**Injection posture:**
+- **NoSQL injection:** ruled out by inspection — every query uses Beanie's typed operator API (`Model.field == value`); aggregation pipelines are built from server-controlled UUIDs only; user-controlled strings are never spliced into raw query dicts.
+- **SQL injection:** N/A (no SQL).
+- **Prompt injection:** N/A in the current scope (LLM/embeddings live behind a deferred phase). When the vector phase lands, the same `services/`-class boundary will isolate any LLM input from query construction.
+
+**WebSocket hardening:**
+- JWT validated on connect; non-members rejected with 4403, expired/invalid with 4401, unknown session with 4404.
+- Inbound frames are capped at 1024 bytes; oversized frames close the socket with 1009.
+
+**Token storage:** access tokens are 30 minutes by default; refresh tokens 30 days. Token `type` claim is checked on decode so a refresh token can never be used as access.
 
 ## Conventions
 

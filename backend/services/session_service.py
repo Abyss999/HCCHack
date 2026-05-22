@@ -1,3 +1,4 @@
+import re
 import secrets
 import string
 from uuid import UUID
@@ -5,6 +6,7 @@ from uuid import UUID
 from fastapi import HTTPException, status
 from pymongo.errors import DuplicateKeyError
 
+from config import get_settings
 from models.session import Session, SessionMember
 from models.user import User
 from schemas.session import SessionCreate
@@ -12,6 +14,7 @@ from schemas.session import SessionCreate
 CODE_ALPHABET = string.ascii_uppercase + string.digits
 CODE_LENGTH = 4
 MAX_CODE_ATTEMPTS = 25
+CODE_REGEX = re.compile(r"^[A-Z0-9]{4}$")
 
 
 class SessionService:
@@ -41,7 +44,13 @@ class SessionService:
         ) from last_error
 
     async def find_by_code(self, code: str) -> Session:
-        session = await Session.find_one(Session.code == code.upper())
+        normalized = code.upper()
+        if not CODE_REGEX.match(normalized):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Invalid session code format",
+            )
+        session = await Session.find_one(Session.code == normalized)
         if session is None:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
@@ -68,6 +77,11 @@ class SessionService:
         for member in session.members:
             if member.user_id == user.id:
                 return session, member, False
+        if len(session.members) >= get_settings().max_session_members:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="Session is full",
+            )
         new_member = SessionMember(user_id=user.id, name=user.name)
         session.members.append(new_member)
         await session.save()

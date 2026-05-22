@@ -6,8 +6,8 @@ from pydantic import BaseModel, EmailStr, Field
 
 
 class PreferencesUpdate(BaseModel):
-    dietary_restrictions: list[str] | None = None
-    cuisine_preferences: list[str] | None = None
+    dietary_restrictions: list[str] | None = Field(default=None, max_length=20)
+    cuisine_preferences: list[str] | None = Field(default=None, max_length=20)
     budget_range: Literal["$", "$$", "$$$", "$$$$"] | None = None
     max_distance_km: float | None = Field(default=None, gt=0, le=200)
 

@@ -1,13 +1,18 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, Request, status
 
+from config import get_settings
 from schemas.auth import RefreshRequest, TokenResponse, UserCreate, UserLogin
+from security import limiter
 from services.auth_service import AuthService, get_auth_service
 
 router = APIRouter(prefix="/auth", tags=["auth"])
+_settings = get_settings()
 
 
 @router.post("/signup", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
+@limiter.limit(_settings.rate_limit_signup)
 async def signup(
+    request: Request,
     data: UserCreate,
     auth: AuthService = Depends(get_auth_service),
 ) -> TokenResponse:
@@ -16,7 +21,9 @@ async def signup(
 
 
 @router.post("/login", response_model=TokenResponse)
+@limiter.limit(_settings.rate_limit_login)
 async def login(
+    request: Request,
     data: UserLogin,
     auth: AuthService = Depends(get_auth_service),
 ) -> TokenResponse:
@@ -25,7 +32,9 @@ async def login(
 
 
 @router.post("/refresh", response_model=TokenResponse)
+@limiter.limit(_settings.rate_limit_refresh)
 async def refresh(
+    request: Request,
     data: RefreshRequest,
     auth: AuthService = Depends(get_auth_service),
 ) -> TokenResponse:

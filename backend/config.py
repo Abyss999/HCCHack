@@ -1,10 +1,14 @@
 from functools import lru_cache
+from typing import Literal
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+
+    # Runtime
+    environment: Literal["development", "staging", "production"] = "development"
 
     # Mongo
     mongo_url: str = "mongodb://localhost:27017"
@@ -20,8 +24,30 @@ class Settings(BaseSettings):
     google_places_api_key: str | None = None
     expo_push_url: str = "https://exp.host/--/api/v2/push/send"
 
-    # CORS
+    # HTTP / CORS
     cors_origins: list[str] = ["*"]
+    allowed_hosts: list[str] = ["*"]
+    max_request_body_bytes: int = 1_000_000  # 1 MB
+
+    # Rate limits — slowapi-format strings, e.g. "5/minute" or "10/30seconds".
+    rate_limit_enabled: bool = True
+    rate_limit_default: str = "100/minute"
+    rate_limit_signup: str = "5/minute"
+    rate_limit_login: str = "10/minute"
+    rate_limit_refresh: str = "30/minute"
+    rate_limit_session_create: str = "10/minute"
+    rate_limit_session_join: str = "20/minute"
+    rate_limit_swipe: str = "60/minute"
+    rate_limit_restaurants: str = "20/minute"
+    rate_limit_push_token: str = "10/minute"
+
+    # Domain limits
+    max_session_members: int = 12
+
+    @property
+    def cors_allow_credentials(self) -> bool:
+        # Browsers reject credentials=True with wildcard origins per CORS spec.
+        return "*" not in self.cors_origins
 
 
 @lru_cache

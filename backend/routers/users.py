@@ -1,11 +1,14 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, Request, status
 
+from config import get_settings
 from deps import get_current_user
 from models.user import User
 from schemas.user import PreferencesUpdate, PushTokenIn, UserMe
+from security import limiter
 from services.user_service import UserService, get_user_service
 
 router = APIRouter(prefix="/users", tags=["users"])
+_settings = get_settings()
 
 
 def _to_me(user: User) -> UserMe:
@@ -34,7 +37,9 @@ async def update_preferences(
 
 
 @router.post("/me/push-token", status_code=status.HTTP_204_NO_CONTENT)
+@limiter.limit(_settings.rate_limit_push_token)
 async def add_push_token(
+    request: Request,
     payload: PushTokenIn,
     current: User = Depends(get_current_user),
     users: UserService = Depends(get_user_service),

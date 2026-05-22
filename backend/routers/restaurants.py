@@ -1,18 +1,23 @@
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 
+from config import get_settings
 from deps import get_current_user
 from models.user import User
 from schemas.restaurant import RestaurantOut
+from security import limiter
 from services.places_service import PlacesService, get_places_service
 from services.session_service import SessionService, get_session_service
 
 router = APIRouter(prefix="/restaurants", tags=["restaurants"])
+_settings = get_settings()
 
 
 @router.get("", response_model=list[RestaurantOut])
+@limiter.limit(_settings.rate_limit_restaurants)
 async def list_restaurants(
+    request: Request,
     session_id: UUID,
     current: User = Depends(get_current_user),
     sessions: SessionService = Depends(get_session_service),
