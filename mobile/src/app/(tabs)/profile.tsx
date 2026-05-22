@@ -113,10 +113,10 @@ export default function ProfileScreen() {
           </Text>
         </View>
 
-        <View style={{ gap: 32, paddingBottom: 32 }}>
+        <View style={{ gap: 24, paddingBottom: 32 }}>
           {/* Dietary Restrictions */}
           <View>
-            <Text style={{ color: colors.text }} className="font-dm-sans text-h2 mb-3">
+            <Text style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, fontWeight: "700", letterSpacing: 0.6, textTransform: "uppercase", marginBottom: 10 }}>
               Dietary Restrictions
             </Text>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
@@ -127,16 +127,15 @@ export default function ProfileScreen() {
                     key={option}
                     onPress={() => toggleDietary(option)}
                     style={{
-                      paddingHorizontal: 12,
-                      paddingVertical: 8,
-                      borderRadius: 999,
-                      backgroundColor: selected ? colors.primary : colors.surfaceLight,
+                      paddingHorizontal: 10,
+                      paddingVertical: 6,
+                      borderRadius: 8,
+                      backgroundColor: selected ? "rgba(217, 119, 87, 0.2)" : colors.chipBg,
+                      borderWidth: 1,
+                      borderColor: selected ? colors.primary : colors.chipBorder,
                     }}
                   >
-                    <Text
-                      className="text-caption font-medium"
-                      style={{ color: selected ? "#ffffff" : colors.textSecondary }}
-                    >
+                    <Text style={{ color: selected ? "#ffffff" : "rgba(255,255,255,0.75)", fontSize: 12, fontWeight: "500" }}>
                       {option}
                     </Text>
                   </Pressable>
@@ -147,8 +146,8 @@ export default function ProfileScreen() {
 
           {/* Cuisine Preferences */}
           <View>
-            <Text style={{ color: colors.text }} className="font-dm-sans text-h2 mb-3">
-              Favorite Cuisines
+            <Text style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, fontWeight: "700", letterSpacing: 0.6, textTransform: "uppercase", marginBottom: 10 }}>
+              Cuisine Preferences
             </Text>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
               {cuisineOptions.map((option) => {
@@ -158,16 +157,15 @@ export default function ProfileScreen() {
                     key={option}
                     onPress={() => toggleCuisine(option)}
                     style={{
-                      paddingHorizontal: 12,
-                      paddingVertical: 8,
-                      borderRadius: 999,
-                      backgroundColor: selected ? colors.primary : colors.surfaceLight,
+                      paddingHorizontal: 10,
+                      paddingVertical: 6,
+                      borderRadius: 8,
+                      backgroundColor: selected ? "rgba(217, 119, 87, 0.2)" : colors.chipBg,
+                      borderWidth: 1,
+                      borderColor: selected ? colors.primary : colors.chipBorder,
                     }}
                   >
-                    <Text
-                      className="text-caption font-medium"
-                      style={{ color: selected ? "#ffffff" : colors.textSecondary }}
-                    >
+                    <Text style={{ color: selected ? "#ffffff" : "rgba(255,255,255,0.75)", fontSize: 12, fontWeight: "500" }}>
                       {option}
                     </Text>
                   </Pressable>
@@ -178,7 +176,7 @@ export default function ProfileScreen() {
 
           {/* Budget Range */}
           <View>
-            <Text style={{ color: colors.text }} className="font-dm-sans text-h2 mb-3">
+            <Text style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, fontWeight: "700", letterSpacing: 0.6, textTransform: "uppercase", marginBottom: 10 }}>
               Budget Range
             </Text>
             <View style={{ flexDirection: "row", gap: 8 }}>
@@ -190,17 +188,16 @@ export default function ProfileScreen() {
                     onPress={() => setPreferences({ ...preferences, budget_range: option })}
                     style={{
                       flex: 1,
-                      paddingVertical: 12,
+                      paddingVertical: 10,
                       borderRadius: 8,
                       alignItems: "center",
                       justifyContent: "center",
-                      backgroundColor: selected ? colors.primary : colors.surfaceLight,
+                      backgroundColor: selected ? "rgba(217, 119, 87, 0.2)" : colors.chipBg,
+                      borderWidth: 1,
+                      borderColor: selected ? colors.primary : colors.chipBorder,
                     }}
                   >
-                    <Text
-                      className="text-body font-medium"
-                      style={{ color: selected ? "#ffffff" : colors.textSecondary }}
-                    >
+                    <Text style={{ color: selected ? "#ffffff" : "rgba(255,255,255,0.75)", fontSize: 14, fontWeight: "500", fontFamily: "IBM Plex Mono" }}>
                       {option}
                     </Text>
                   </Pressable>
@@ -211,11 +208,11 @@ export default function ProfileScreen() {
 
           {/* Max Distance */}
           <View>
-            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-              <Text style={{ color: colors.text }} className="font-dm-sans text-h2">
+            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+              <Text style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, fontWeight: "700", letterSpacing: 0.6, textTransform: "uppercase" }}>
                 Max Distance
               </Text>
-              <Text className="text-h2 text-primary font-bold">
+              <Text style={{ color: colors.primary, fontSize: 13, fontWeight: "600" }}>
                 {milesFromKm(preferences.max_distance_km)} mi
               </Text>
             </View>
@@ -228,17 +225,16 @@ export default function ProfileScreen() {
                     onPress={() => setPreferences({ ...preferences, max_distance_km: km })}
                     style={{
                       flex: 1,
-                      paddingVertical: 8,
+                      paddingVertical: 10,
                       borderRadius: 8,
                       alignItems: "center",
                       justifyContent: "center",
-                      backgroundColor: selected ? colors.primary : colors.surfaceLight,
+                      backgroundColor: selected ? "rgba(217, 119, 87, 0.2)" : colors.chipBg,
+                      borderWidth: 1,
+                      borderColor: selected ? colors.primary : colors.chipBorder,
                     }}
                   >
-                    <Text
-                      className="text-body-sm font-medium"
-                      style={{ color: selected ? "#ffffff" : colors.textSecondary }}
-                    >
+                    <Text style={{ color: selected ? "#ffffff" : "rgba(255,255,255,0.75)", fontSize: 12, fontWeight: "500" }}>
                       {mi} mi
                     </Text>
                   </Pressable>
@@ -249,7 +245,7 @@ export default function ProfileScreen() {
 
           {/* Appearance */}
           <View>
-            <Text style={{ color: colors.text }} className="font-dm-sans text-h2 mb-3">
+            <Text style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, fontWeight: "700", letterSpacing: 0.6, textTransform: "uppercase", marginBottom: 10 }}>
               Appearance
             </Text>
             <View style={{ flexDirection: "row", gap: 8 }}>
@@ -262,19 +258,16 @@ export default function ProfileScreen() {
                     onPress={() => setThemeMode(mode)}
                     style={{
                       flex: 1,
-                      paddingVertical: 12,
+                      paddingVertical: 10,
                       borderRadius: 8,
                       alignItems: "center",
                       justifyContent: "center",
-                      backgroundColor: selected ? colors.primary : colors.surfaceLight,
-                      borderWidth: selected ? 0 : 1,
-                      borderColor: colors.border,
+                      backgroundColor: selected ? "rgba(217, 119, 87, 0.2)" : colors.chipBg,
+                      borderWidth: 1,
+                      borderColor: selected ? colors.primary : colors.chipBorder,
                     }}
                   >
-                    <Text
-                      className="text-body-sm font-medium"
-                      style={{ color: selected ? "#ffffff" : colors.textSecondary }}
-                    >
+                    <Text style={{ color: selected ? "#ffffff" : "rgba(255,255,255,0.75)", fontSize: 12, fontWeight: "500" }}>
                       {label}
                     </Text>
                   </Pressable>
@@ -289,12 +282,17 @@ export default function ProfileScreen() {
               onPress={handleSavePreferences}
               disabled={loading}
               style={{
-                paddingVertical: 12,
-                borderRadius: 8,
+                paddingVertical: 14,
+                borderRadius: 10,
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: colors.primary,
                 opacity: loading ? 0.5 : 1,
+                shadowColor: colors.primary,
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 0.3,
+                shadowRadius: 8,
+                elevation: 4,
               }}
             >
               <Text className="text-white font-roboto font-medium text-body">
@@ -305,15 +303,15 @@ export default function ProfileScreen() {
             <Pressable
               onPress={logout}
               style={{
-                paddingVertical: 12,
-                borderRadius: 8,
+                paddingVertical: 14,
+                borderRadius: 10,
                 borderWidth: 1.5,
                 borderColor: "#ef5350",
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <Text className="text-destructive font-roboto font-medium text-body">
+              <Text style={{ color: "#ef5350" }} className="font-roboto font-medium text-body">
                 Log Out
               </Text>
             </Pressable>

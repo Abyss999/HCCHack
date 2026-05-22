@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
   useSharedValue,
@@ -220,10 +220,41 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
               ))}
             </View>
 
-            {/* Hint */}
-            <Text style={{ color: colors.textTertiary, textAlign: "center" }} className="text-caption">
-              Swipe right to like · left to pass
-            </Text>
+            {/* Action buttons */}
+            <View style={{ flexDirection: "row", gap: 10 }}>
+              <Pressable
+                onPress={onSwipeLeft}
+                style={{
+                  flex: 1,
+                  paddingVertical: 12,
+                  borderRadius: 10,
+                  borderWidth: 1.5,
+                  borderColor: "#ef5350",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Text style={{ color: "#ef5350", fontSize: 14, fontWeight: "600" }}>Pass</Text>
+              </Pressable>
+              <Pressable
+                onPress={onSwipeRight}
+                style={{
+                  flex: 1,
+                  paddingVertical: 12,
+                  borderRadius: 10,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "#4caf50",
+                  shadowColor: "#4caf50",
+                  shadowOffset: { width: 0, height: 4 },
+                  shadowOpacity: 0.3,
+                  shadowRadius: 8,
+                  elevation: 4,
+                }}
+              >
+                <Text style={{ color: "#ffffff", fontSize: 14, fontWeight: "600" }}>Like ❤️</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </Animated.View>

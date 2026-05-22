@@ -53,12 +53,22 @@ export default function HomeScreen() {
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.bg }}>
       <ScrollView style={{ flex: 1 }}>
         {/* Header */}
-        <View style={{ paddingHorizontal: 16, paddingTop: 24, paddingBottom: 32, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+        <View style={{
+          paddingHorizontal: 16,
+          paddingTop: 20,
+          paddingBottom: 14,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderBottomWidth: 1,
+          borderBottomColor: "rgba(255,255,255,0.06)",
+          marginBottom: 16,
+        }}>
           <View>
-            <Text style={{ color: colors.text }} className="font-dm-sans text-h1">
+            <Text style={{ color: colors.text, fontFamily: "DM Sans", fontSize: 15, fontWeight: "600" }}>
               Welcome back
             </Text>
-            <Text style={{ color: colors.textSecondary }} className="text-body-sm">
+            <Text style={{ color: "rgba(255,255,255,0.45)", fontSize: 12 }}>
               {user?.name}
             </Text>
           </View>
@@ -66,20 +76,20 @@ export default function HomeScreen() {
             onPress={logout}
             style={{
               paddingHorizontal: 12,
-              paddingVertical: 8,
-              borderRadius: 8,
+              paddingVertical: 6,
+              borderRadius: 6,
               borderWidth: 1,
-              borderColor: colors.border,
+              borderColor: "rgba(255,255,255,0.2)",
             }}
           >
-            <Text style={{ color: colors.textSecondary }} className="text-caption">
+            <Text style={{ color: "rgba(255,255,255,0.6)", fontSize: 12 }}>
               Logout
             </Text>
           </Pressable>
         </View>
 
         {/* Main actions */}
-        <View style={{ paddingHorizontal: 16, gap: 12, paddingVertical: 24 }}>
+        <View style={{ paddingHorizontal: 16, gap: 12, paddingBottom: 24 }}>
           <Pressable
             onPress={handleCreateSession}
             disabled={loading}
@@ -168,18 +178,24 @@ export default function HomeScreen() {
         )}
 
         {/* How it works */}
-        <View style={{ paddingHorizontal: 16, paddingVertical: 32, gap: 12 }}>
-          <Text style={{ color: colors.textSecondary }} className="text-body-sm font-medium">
-            How it works
-          </Text>
-          <View style={{ gap: 8 }}>
+        <View style={{ paddingHorizontal: 16, paddingBottom: 32 }}>
+          <View style={{
+            backgroundColor: "rgba(217, 119, 87, 0.06)",
+            borderLeftWidth: 3,
+            borderLeftColor: "rgba(217, 119, 87, 0.4)",
+            borderRadius: 6,
+            padding: 14,
+          }}>
+            <Text style={{ color: "rgba(217, 119, 87, 0.9)", fontSize: 12, fontWeight: "600", marginBottom: 8 }}>
+              How it works
+            </Text>
             {[
               "Create or join a session with friends",
               "Swipe yes/no on nearby restaurants",
               "Instant match when everyone agrees",
               "See the top 3 options otherwise",
-            ].map((tip) => (
-              <Text key={tip} style={{ color: colors.textTertiary }} className="text-body-sm">
+            ].map((tip, i) => (
+              <Text key={tip} style={{ color: "rgba(255,255,255,0.5)", fontSize: 12, lineHeight: 18, marginBottom: i < 3 ? 4 : 0 }}>
                 • {tip}
               </Text>
             ))}

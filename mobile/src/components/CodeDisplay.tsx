@@ -38,24 +38,31 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code, onCopy, onShare 
   };
 
   return (
-    <View style={{ alignItems: "center", gap: 24 }}>
+    <View style={{ alignItems: "center", gap: 20 }}>
       {/* Code boxes */}
       <View style={{ flexDirection: "row", gap: 8 }}>
         {code.split("").map((char, index) => (
           <View
             key={index}
             style={{
-              width: 60,
-              height: 60,
-              borderRadius: 12,
-              borderWidth: 2,
-              borderColor: colors.primary,
+              width: 50,
+              height: 50,
+              borderRadius: 10,
+              borderWidth: 1.5,
+              borderColor: "rgba(217, 119, 87, 0.4)",
               alignItems: "center",
               justifyContent: "center",
               backgroundColor: colors.surfaceLight,
             }}
           >
-            <Text className="font-mono text-display-1 text-primary font-bold">
+            <Text
+              style={{
+                fontFamily: "IBM Plex Mono",
+                fontSize: 18,
+                fontWeight: "600",
+                color: colors.primary,
+              }}
+            >
               {char}
             </Text>
           </View>
@@ -63,13 +70,13 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code, onCopy, onShare 
       </View>
 
       {/* Action buttons */}
-      <View style={{ flexDirection: "row", gap: 12 }}>
+      <View style={{ flexDirection: "row", gap: 10 }}>
         <Pressable
           onPress={handleCopy}
           style={{
             flex: 1,
             paddingHorizontal: 16,
-            paddingVertical: 12,
+            paddingVertical: 10,
             borderRadius: 8,
             borderWidth: 1,
             borderColor: colors.primary,
@@ -77,14 +84,14 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code, onCopy, onShare 
             justifyContent: "center",
           }}
         >
-          <Text className="text-primary font-roboto font-medium">Copy</Text>
+          <Text style={{ color: colors.primary }} className="font-roboto font-medium text-body-sm">Copy</Text>
         </Pressable>
         <Pressable
           onPress={handleShare}
           style={{
             flex: 1,
             paddingHorizontal: 16,
-            paddingVertical: 12,
+            paddingVertical: 10,
             borderRadius: 8,
             borderWidth: 1,
             borderColor: colors.primary,
@@ -92,7 +99,7 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code, onCopy, onShare 
             justifyContent: "center",
           }}
         >
-          <Text className="text-primary font-roboto font-medium">Share</Text>
+          <Text style={{ color: colors.primary }} className="font-roboto font-medium text-body-sm">Share</Text>
         </Pressable>
       </View>
     </View>

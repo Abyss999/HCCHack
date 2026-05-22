@@ -60,7 +60,6 @@ export const SwipeStack: React.FC<SwipeStackProps> = ({
 
   return (
     <View style={{ flex: 1 }}>
-      {/* Card stack */}
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center", paddingHorizontal: 16 }}>
         {restaurants.slice(currentIndex, currentIndex + 2).map((restaurant, idx) => (
           <View
@@ -70,7 +69,7 @@ export const SwipeStack: React.FC<SwipeStackProps> = ({
               width: "100%",
               maxWidth: 384,
               zIndex: 100 - idx,
-              transform: [{ scale: 1 - idx * 0.05 }, { translateY: idx * 12 }],
+              transform: [{ scale: 1 - idx * 0.04 }, { translateY: idx * 10 }],
             }}
           >
             {idx === 0 ? (
@@ -82,10 +81,11 @@ export const SwipeStack: React.FC<SwipeStackProps> = ({
             ) : (
               <View
                 style={{
-                  borderRadius: 16,
-                  overflow: "hidden",
+                  borderRadius: 12,
+                  borderWidth: 1,
+                  borderColor: colors.cardBorder,
                   backgroundColor: colors.surface,
-                  height: 500,
+                  height: 480,
                 }}
               />
             )}
@@ -93,18 +93,9 @@ export const SwipeStack: React.FC<SwipeStackProps> = ({
         ))}
       </View>
 
-      {/* Footer */}
-      <View
-        style={{
-          paddingHorizontal: 16,
-          paddingVertical: 24,
-          backgroundColor: colors.surface,
-          borderTopLeftRadius: 16,
-          borderTopRightRadius: 16,
-        }}
-      >
-        <Text style={{ color: colors.textSecondary }} className="text-center text-body-sm">
-          {remainingCount} restaurant{remainingCount !== 1 ? "s" : ""} left
+      <View style={{ paddingHorizontal: 16, paddingBottom: 16, paddingTop: 8 }}>
+        <Text style={{ color: colors.textTertiary, textAlign: "center" }} className="text-caption">
+          {remainingCount} restaurant{remainingCount !== 1 ? "s" : ""} remaining · swipe or tap
         </Text>
       </View>
     </View>

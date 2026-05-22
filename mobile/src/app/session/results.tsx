@@ -4,7 +4,6 @@ import {
   Text,
   SafeAreaView,
   ScrollView,
-  Image,
   Pressable,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -70,111 +69,67 @@ export default function ResultsScreen() {
         </View>
 
         {/* Results list */}
-        <View style={{ paddingHorizontal: 16, gap: 16, paddingBottom: 32 }}>
-          {displayResults.map((result, index) => (
-            <View
-              key={result.restaurant.id}
-              style={{
-                borderRadius: 12,
-                overflow: "hidden",
-                backgroundColor: colors.surface,
-                borderWidth: 1,
-                borderColor: colors.cardBorder,
-              }}
-            >
-              {/* Image + rank badge */}
-              <View style={{ position: "relative", height: 192 }}>
-                <Image
-                  source={{ uri: result.restaurant.photo_url ?? undefined }}
-                  style={{ width: "100%", height: "100%", backgroundColor: colors.surfaceLight }}
-                  resizeMode="cover"
-                />
+        <View style={{ paddingHorizontal: 16, gap: 10, paddingBottom: 32 }}>
+          {displayResults.map((result, index) => {
+            const medal = ["🥇", "🥈", "🥉"][index] ?? `#${index + 1}`;
+            return (
+              <View
+                key={result.restaurant.id}
+                style={{
+                  flexDirection: "row",
+                  gap: 10,
+                  alignItems: "flex-start",
+                  padding: 12,
+                  borderRadius: 10,
+                  backgroundColor: colors.surface,
+                  borderWidth: 1,
+                  borderColor: colors.cardBorder,
+                }}
+              >
+                {/* Rank badge */}
                 <View
                   style={{
-                    position: "absolute",
-                    top: 12,
-                    right: 12,
-                    borderRadius: 999,
-                    width: 48,
-                    height: 48,
+                    width: 40,
+                    height: 40,
+                    borderRadius: 8,
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: index === 0 ? colors.primaryLight : colors.rankBadgeFallback,
+                    backgroundColor: "rgba(217, 119, 87, 0.2)",
+                    flexShrink: 0,
                   }}
                 >
-                  <Text
-                    className="font-dm-sans font-bold text-h2"
-                    style={{ color: index === 0 ? "#1a1817" : colors.rankBadgeFallbackText }}
-                  >
-                    #{index + 1}
+                  <Text style={{ fontSize: index < 3 ? 20 : 16, fontWeight: "700", color: colors.primary }}>
+                    {medal}
                   </Text>
                 </View>
-              </View>
 
-              {/* Info */}
-              <View style={{ padding: 16 }}>
-                <View style={{ marginBottom: 12 }}>
-                  <Text style={{ color: colors.text }} className="font-dm-sans text-h1 mb-1">
+                {/* Content */}
+                <View style={{ flex: 1 }}>
+                  <Text style={{ color: colors.text, fontSize: 14, fontWeight: "600", marginBottom: 4 }}>
                     {result.restaurant.name}
                   </Text>
-                  <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
-                    <Text className="text-primary text-body font-medium">★</Text>
-                    <Text style={{ color: colors.textSecondary }} className="text-body-sm">
-                      {result.restaurant.rating != null
-                        ? result.restaurant.rating.toFixed(1)
-                        : "—"}{" "}
-                      • {result.restaurant.price_tier ?? "—"}
+                  <View style={{ flexDirection: "row", gap: 12, marginBottom: 8 }}>
+                    <Text style={{ color: colors.textTertiary, fontSize: 12 }}>
+                      {result.yes_count} of {result.total} votes
                     </Text>
-                  </View>
-                </View>
-
-                <Text style={{ color: colors.textSecondary }} className="text-body-sm mb-4">
-                  {result.restaurant.address}
-                </Text>
-
-                {/* Agreement bar */}
-                <View style={{ marginBottom: 12 }}>
-                  <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                    <Text style={{ color: colors.text }} className="text-body-sm font-medium">
-                      Agreement
-                    </Text>
-                    <Text className="text-h2 font-bold text-primary">
+                    <Text style={{ color: colors.textTertiary, fontSize: 12 }}>
                       {result.score_pct.toFixed(0)}%
                     </Text>
+                    {result.restaurant.rating != null && (
+                      <Text style={{ color: colors.textTertiary, fontSize: 12 }}>
+                        ★ {result.restaurant.rating.toFixed(1)}
+                      </Text>
+                    )}
                   </View>
-                  <View style={{ height: 3, backgroundColor: colors.progressBg, borderRadius: 2, overflow: "hidden" }}>
+                  <View style={{ height: 2, backgroundColor: colors.progressBg, borderRadius: 1, overflow: "hidden" }}>
                     <View
-                      style={{ height: "100%", backgroundColor: colors.primary, borderRadius: 2, width: `${result.score_pct}%` }}
+                      style={{ height: "100%", backgroundColor: colors.primary, borderRadius: 1, width: `${result.score_pct}%` }}
                     />
                   </View>
-                  <Text style={{ color: colors.textTertiary }} className="text-caption mt-1">
-                    {result.yes_count} of {result.total} members
-                  </Text>
-                </View>
-
-                {/* Cuisine chips */}
-                <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
-                  {result.restaurant.cuisine_tags.slice(0, 3).map((cuisine) => (
-                    <View
-                      key={cuisine}
-                      style={{
-                        paddingHorizontal: 9,
-                        paddingVertical: 4,
-                        borderRadius: 6,
-                        backgroundColor: colors.chipBg,
-                        borderWidth: 1,
-                        borderColor: colors.chipBorder,
-                      }}
-                    >
-                      <Text style={{ color: "rgba(255,255,255,0.65)" }} className="text-caption-sm font-medium">
-                        {cuisine}
-                      </Text>
-                    </View>
-                  ))}
                 </View>
               </View>
-            </View>
-          ))}
+            );
+          })}
         </View>
 
         {/* Action */}
