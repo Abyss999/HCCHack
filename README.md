@@ -12,6 +12,8 @@ Group restaurant decision app. Friends join a session via a 4-digit code, swipe 
 | Auth | JWT access + refresh (`python-jose`), bcrypt (`passlib`) |
 | Realtime | FastAPI WebSockets |
 | Restaurants | Google Places API (Nearby Search + Details/editorial_summary), 6h DB cache, `?mock=true` / `USE_MOCK_RESTAURANTS` fallback |
+| AI | Google Gemini 2.5 Flash — vibe blurbs, vibe pick, personalized fit (all optional, graceful fallback) |
+| iMessage | Messages app extension (`DishMatchMessages` target) — swipe + results inside iMessage threads |
 | Push | APNs (UNUserNotificationCenter) |
 | Local dev | Docker Compose (mongo + mongo-express) — or MongoDB Atlas |
 | Production target | DigitalOcean (App Platform or Droplet) |
@@ -20,9 +22,15 @@ Group restaurant decision app. Friends join a session via a 4-digit code, swipe 
 
 ```
 HCCHack/
-├── backend/           FastAPI + Beanie + MongoDB
-├── mobile-swift/      SwiftUI iOS app (iOS 16+, xcodegen project)
-└── CLAUDE.md          Project context for Claude Code sessions
+├── backend/                  FastAPI + Beanie + MongoDB
+│   ├── routers/              thin HTTP layer (auth, sessions, swipes, restaurants, recommendations)
+│   ├── services/             OOP business logic (auth, session, places, matching, gemini, recommendation)
+│   ├── models/               Beanie Document classes
+│   └── schemas/              Pydantic request/response models
+├── mobile-swift/
+│   ├── DishMatch/            SwiftUI iOS app (iOS 16+, xcodegen project)
+│   └── DishMatchMessages/    iMessage app extension (compact + expanded swipe/results)
+└── CLAUDE.md                 Full project context for Claude Code sessions
 ```
 
 ## Run it
@@ -34,7 +42,7 @@ cd backend
 docker compose up -d                       # mongo + mongo-express (local target only)
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env                       # fill JWT_SECRET + GOOGLE_PLACES_API_KEY
+cp .env.example .env                       # fill JWT_SECRET, GOOGLE_PLACES_API_KEY, GEMINI_API_KEY (optional)
 uvicorn main:app --reload --port 8001      # http://localhost:8001/docs
 ```
 
@@ -74,12 +82,34 @@ POST  /sessions                          GET /sessions/{code}
 POST  /sessions/{id}/join                POST /sessions/{id}/start       # rate-limited
 POST  /sessions/{id}/leave               DELETE /sessions/{id}            # rate-limited; delete is host only
 GET   /sessions/{id}/status              GET /sessions/{id}/results
+GET   /sessions/{id}/vibe-pick           # Gemini best-match from the user's yes swipes
 GET   /restaurants?session_id=...[&mock=true]
+GET   /restaurants/{id}/fit?session_id=  # Gemini personalized fit analysis
 POST  /sessions/{id}/swipe
+POST  /recommendations                   # Atlas sample_restaurants scored by cuisine/borough/grade
 WS    /ws/sessions/{id}?token=...
         events: member_joined | swipe_progress | instant_match
                 | phase_change | top3_ready
 ```
+
+## iMessage Extension
+
+`DishMatchMessages` is an iMessage app extension bundled alongside the main app. It shares auth tokens with the main app via a Keychain access group.
+
+- **Compact mode** — shows login (`CompactLoginView`) or a session code entry screen (`CompactSessionView`) for joining an existing session.
+- **Expanded mode** — full swipe stack (`ExpandedSwipeView`) and results leaderboard (`ExpandedResultsView`) directly inside a Messages thread.
+- Session state is encoded into the `MSMessage` URL by `MSMessageBuilder` and decoded from incoming messages by `SessionURLParser`. The extension hits the same backend API — no separate endpoints needed.
+
+## Recommendations (Atlas sample data)
+
+`POST /recommendations` scores restaurants from MongoDB Atlas's built-in `sample_restaurants` dataset against user-supplied preferences. Useful as a fallback discovery surface or for testing without a Google Places key.
+
+**Scoring model (single aggregation pipeline):**
+- Cuisine match: +50 pts
+- Borough match: +25 pts
+- Latest health-inspection grade — A: +50, B: +30, C: +10
+
+Requires `MONGO_TARGET=atlas` (the `sample_restaurants` collection lives in the Atlas sample dataset, not local Docker Mongo).
 
 ## Restaurant data + caching
 
