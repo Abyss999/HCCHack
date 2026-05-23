@@ -31,6 +31,7 @@ class User(Document):
 
     class Settings:
         name = "users"
+        keep_nulls = False  # don't write null fields to BSON; required for sparse apple_id index
         indexes = [
             IndexModel("email", unique=True),
             IndexModel("apple_id", unique=True, sparse=True),

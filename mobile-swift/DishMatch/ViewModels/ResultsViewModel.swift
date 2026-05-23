@@ -4,6 +4,8 @@ import Foundation
 final class ResultsViewModel: ObservableObject {
     @Published var results: [SessionResult] = []
     @Published var isLoading = false
+    @Published var vibePick: VibePick?
+    @Published var isLoadingVibe = false
 
     let sessionId: UUID
     let sessionVM: SessionViewModel
@@ -20,6 +22,14 @@ final class ResultsViewModel: ObservableObject {
         defer { isLoading = false }
         try? await sessionVM.fetchResults(sessionId: sessionId)
         results = sessionVM.results
+        await loadVibePick()
+    }
+
+    func loadVibePick() async {
+        guard vibePick == nil, !results.isEmpty else { return }
+        isLoadingVibe = true
+        defer { isLoadingVibe = false }
+        vibePick = try? await sessionVM.fetchVibePick(sessionId: sessionId)
     }
 
     private func setupWS() {
@@ -27,6 +37,7 @@ final class ResultsViewModel: ObservableObject {
         ws.connect(sessionId: sessionId, token: token)
         ws.onTop3Ready = { [weak self] p in
             self?.results = p.results
+            Task { await self?.loadVibePick() }
         }
     }
 }

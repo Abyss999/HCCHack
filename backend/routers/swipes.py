@@ -10,8 +10,9 @@ from models.session import Session
 from models.swipe import Swipe
 from models.user import User
 from schemas.restaurant import RestaurantOut
-from schemas.swipe import ResultsOut, SwipeAck, SwipeIn, TopResult
+from schemas.swipe import ResultsOut, SwipeAck, SwipeIn, TopResult, VibePickOut
 from security import limiter
+from services.gemini_service import GeminiService, get_gemini_service
 from services.matching_service import MatchingService, get_matching_service
 from services.notification_service import NotificationService, get_notification_service
 from services.session_service import SessionService, get_session_service
@@ -121,6 +122,26 @@ async def get_results(
         )
         for row in top
     ])
+
+
+@router.get("/sessions/{session_id}/vibe-pick", response_model=VibePickOut)
+async def vibe_pick(
+    session_id: UUID,
+    current: User = Depends(get_current_user),
+    sessions: SessionService = Depends(get_session_service),
+    matching: MatchingService = Depends(get_matching_service),
+    gemini: GeminiService = Depends(get_gemini_service),
+) -> VibePickOut:
+    session = await sessions.get_by_id(session_id)
+    if not sessions.is_member(session, current.id):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not a session member")
+    top = await matching.get_top_3(session)
+    if not top:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No results yet")
+    members = [await User.get(m.user_id) for m in session.members]
+    members = [u for u in members if u is not None]
+    out = await gemini.vibe_pick(members, top)
+    return VibePickOut(**out)
 
 
 async def _finalize_top3(

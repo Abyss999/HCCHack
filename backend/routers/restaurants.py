@@ -1,4 +1,5 @@
 import asyncio
+from math import asin, cos, radians, sin, sqrt
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
@@ -16,16 +17,16 @@ router = APIRouter(prefix="/restaurants", tags=["restaurants"])
 _settings = get_settings()
 
 _MOCK_RESTAURANTS = [
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000001"), google_place_id="mock_1", name="Joe's Pizza", cuisine_tags=["italian","pizza"], price_tier="$", rating=4.7, photo_url=None, address="7 Carmine St, New York, NY", lat=40.7301, lng=-74.0023),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000002"), google_place_id="mock_2", name="Xi'an Famous Foods", cuisine_tags=["chinese","noodles"], price_tier="$", rating=4.5, photo_url=None, address="81 St Marks Pl, New York, NY", lat=40.7282, lng=-73.9842),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000003"), google_place_id="mock_3", name="Katz's Delicatessen", cuisine_tags=["deli","american"], price_tier="$$", rating=4.4, photo_url=None, address="205 E Houston St, New York, NY", lat=40.7223, lng=-73.9873),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000004"), google_place_id="mock_4", name="Shake Shack", cuisine_tags=["burgers","american"], price_tier="$$", rating=4.3, photo_url=None, address="Madison Square Park, New York, NY", lat=40.7408, lng=-73.9882),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000005"), google_place_id="mock_5", name="Momofuku Noodle Bar", cuisine_tags=["japanese","ramen"], price_tier="$$", rating=4.4, photo_url=None, address="171 1st Ave, New York, NY", lat=40.7267, lng=-73.9815),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000006"), google_place_id="mock_6", name="Tacombi", cuisine_tags=["mexican","tacos"], price_tier="$$", rating=4.3, photo_url=None, address="267 Elizabeth St, New York, NY", lat=40.7241, lng=-73.9948),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000007"), google_place_id="mock_7", name="Gramercy Tavern", cuisine_tags=["american","fine dining"], price_tier="$$$$", rating=4.6, photo_url=None, address="42 E 20th St, New York, NY", lat=40.7386, lng=-73.9886),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000008"), google_place_id="mock_8", name="Sushi Nakazawa", cuisine_tags=["japanese","sushi"], price_tier="$$$$", rating=4.7, photo_url=None, address="23 Commerce St, New York, NY", lat=40.7302, lng=-74.0031),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000009"), google_place_id="mock_9", name="Roberta's Pizza", cuisine_tags=["italian","pizza"], price_tier="$$", rating=4.5, photo_url=None, address="261 Moore St, Brooklyn, NY", lat=40.7054, lng=-73.9334),
-    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000010"), google_place_id="mock_10", name="The Halal Guys", cuisine_tags=["middle eastern","halal"], price_tier="$", rating=4.2, photo_url=None, address="W 53rd St & 6th Ave, New York, NY", lat=40.7614, lng=-73.9797),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000001"), google_place_id="mock_1", name="Joe's Pizza", cuisine_tags=["italian","pizza"], price_tier="$", rating=4.7, photo_url=None, address="7 Carmine St, New York, NY", lat=40.7301, lng=-74.0023, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000002"), google_place_id="mock_2", name="Xi'an Famous Foods", cuisine_tags=["chinese","noodles"], price_tier="$", rating=4.5, photo_url=None, address="81 St Marks Pl, New York, NY", lat=40.7282, lng=-73.9842, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000003"), google_place_id="mock_3", name="Katz's Delicatessen", cuisine_tags=["deli","american"], price_tier="$$", rating=4.4, photo_url=None, address="205 E Houston St, New York, NY", lat=40.7223, lng=-73.9873, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000004"), google_place_id="mock_4", name="Shake Shack", cuisine_tags=["burgers","american"], price_tier="$$", rating=4.3, photo_url=None, address="Madison Square Park, New York, NY", lat=40.7408, lng=-73.9882, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000005"), google_place_id="mock_5", name="Momofuku Noodle Bar", cuisine_tags=["japanese","ramen"], price_tier="$$", rating=4.4, photo_url=None, address="171 1st Ave, New York, NY", lat=40.7267, lng=-73.9815, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000006"), google_place_id="mock_6", name="Tacombi", cuisine_tags=["mexican","tacos"], price_tier="$$", rating=4.3, photo_url=None, address="267 Elizabeth St, New York, NY", lat=40.7241, lng=-73.9948, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000007"), google_place_id="mock_7", name="Gramercy Tavern", cuisine_tags=["american","fine dining"], price_tier="$$$$", rating=4.6, photo_url=None, address="42 E 20th St, New York, NY", lat=40.7386, lng=-73.9886, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000008"), google_place_id="mock_8", name="Sushi Nakazawa", cuisine_tags=["japanese","sushi"], price_tier="$$$$", rating=4.7, photo_url=None, address="23 Commerce St, New York, NY", lat=40.7302, lng=-74.0031, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000009"), google_place_id="mock_9", name="Roberta's Pizza", cuisine_tags=["italian","pizza"], price_tier="$$", rating=4.5, photo_url=None, address="261 Moore St, Brooklyn, NY", lat=40.7054, lng=-73.9334, description=None),
+    RestaurantOut(id=UUID("a1000000-0000-0000-0000-000000000010"), google_place_id="mock_10", name="The Halal Guys", cuisine_tags=["middle eastern","halal"], price_tier="$", rating=4.2, photo_url=None, address="W 53rd St & 6th Ave, New York, NY", lat=40.7614, lng=-73.9797, description=None),
 ]
 
 
@@ -46,6 +47,14 @@ async def _ensure_mocks_persisted() -> None:
                 lat=r.lat,
                 lng=r.lng,
             ).insert()
+
+
+def _haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
+    R = 6371
+    dlat = radians(lat2 - lat1)
+    dlng = radians(lng2 - lng1)
+    a = sin(dlat / 2) ** 2 + cos(radians(lat1)) * cos(radians(lat2)) * sin(dlng / 2) ** 2
+    return 2 * R * asin(sqrt(a))
 
 
 @router.get("", response_model=list[RestaurantOut])
@@ -73,6 +82,17 @@ async def list_restaurants(
             detail="Session has no location set",
         )
 
+    # Demo path: if seeded restaurants exist near the session location, return those
+    # and skip the Google Places API call entirely.
+    radius_km = session.radius_km_override or 10.0
+    seeded = await Restaurant.find_all().to_list()
+    nearby = [
+        r for r in seeded
+        if _haversine_km(session.location_lat, session.location_lng, r.lat, r.lng) <= radius_km
+    ]
+    if nearby:
+        return [RestaurantOut(**r.model_dump()) for r in nearby]
+
     # Override branch fires when ANY override is set (cuisine, radius, or budgets).
     has_overrides = (
         session.cuisine_overrides is not None
@@ -85,8 +105,6 @@ async def list_restaurants(
             sorted({PRICE_LEVEL_BY_TIER[b] for b in session.budget_overrides if b in PRICE_LEVEL_BY_TIER})
             if session.budget_overrides else []
         )
-        # Google Places takes minprice/maxprice as a range. We narrow the API call to that
-        # range, then post-filter to the EXACT set of selected tiers.
         group_filter = GroupFilter(
             radius_m=radius_m,
             cuisines=session.cuisine_overrides or [],
@@ -105,9 +123,6 @@ async def list_restaurants(
         group_filter,
     )
 
-    # Exact-tier post-filter: only keep restaurants whose price_tier is one the user picked.
-    # We don't drop unknown-price restaurants — Google often returns them without price_level,
-    # and excluding them would empty the stack in many neighborhoods.
     if budget_levels:
         allowed_tiers = {b for b in (session.budget_overrides or [])}
         restaurants = [

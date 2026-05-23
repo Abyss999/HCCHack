@@ -31,3 +31,9 @@ class TopResult(BaseModel):
 
 class ResultsOut(BaseModel):
     top: list[TopResult]
+
+
+class VibePickOut(BaseModel):
+    pick_restaurant_id: UUID
+    name: str
+    reasoning: str

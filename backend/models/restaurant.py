@@ -17,6 +17,9 @@ class Restaurant(Document):
     lat: float
     lng: float
     description: str | None = None  # editorial_summary from Places Details (cached, single API call)
+    menu: list[str] = Field(default_factory=list)
+    vibe_blurb: str | None = None
+    reviews: list[str] = Field(default_factory=list)  # cached Google Places reviews
 
     class Settings:
         name = "restaurants"

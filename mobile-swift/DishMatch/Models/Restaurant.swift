@@ -12,6 +12,14 @@ struct Restaurant: Codable, Identifiable {
     let lat: Double
     let lng: Double
     let description: String?
+    let menu: [String]?
+    let vibeBlurb: String?
+}
+
+struct VibePick: Codable {
+    let pickRestaurantId: UUID
+    let name: String
+    let reasoning: String
 }
 
 struct SessionResult: Codable, Identifiable {

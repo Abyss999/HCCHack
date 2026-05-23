@@ -82,6 +82,7 @@ struct ResultsView: View {
                     } else if showMap {
                         mapView
                     } else {
+                        vibePickCard()
                         ForEach(Array(vm.results.enumerated()), id: \.element.id) { idx, result in
                             Button {
                                 mapsTarget = result
@@ -190,6 +191,50 @@ struct ResultsView: View {
             longitudeDelta: max((maxLng - minLng) * 1.5, 0.02)
         )
         return MKCoordinateRegion(center: center, span: span)
+    }
+
+    @ViewBuilder
+    private func vibePickCard() -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 8) {
+                Text("✨")
+                Text("AI VIBE PICK")
+                    .font(.system(size: 11, weight: .bold))
+                    .tracking(0.8)
+                    .foregroundColor(theme.primary)
+                Spacer()
+            }
+
+            if vm.isLoadingVibe && vm.vibePick == nil {
+                HStack(spacing: 10) {
+                    ProgressView().tint(theme.primary).scaleEffect(0.8)
+                    Text("Analyzing reviews + group vibe…")
+                        .font(.system(size: 13))
+                        .foregroundColor(theme.textSecondary)
+                }
+                .padding(.vertical, 6)
+            } else if let pick = vm.vibePick {
+                Text(pick.name)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(theme.text)
+                Text(pick.reasoning)
+                    .font(.system(size: 13))
+                    .foregroundColor(theme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            } else {
+                Text("Couldn't load vibe pick.")
+                    .font(.system(size: 13))
+                    .foregroundColor(theme.textSecondary)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
+        .background(theme.primary.opacity(0.08))
+        .cornerRadius(14)
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(theme.primary.opacity(0.4), lineWidth: 1)
+        )
     }
 
     @ViewBuilder

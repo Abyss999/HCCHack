@@ -1,0 +1,25 @@
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Xcode / Swift build artifacts ---
+mobile-swift/build/
+**/xcuserdata/
+**/DerivedData/
+*.xcuserstate
+
+# --- macOS ---
+.DS_Store
+
+# --- Local-only demo notes (API keys live in here) ---
+Demo tasks/

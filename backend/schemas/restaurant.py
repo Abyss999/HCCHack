@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class RestaurantOut(BaseModel):
@@ -15,3 +15,5 @@ class RestaurantOut(BaseModel):
     lat: float
     lng: float
     description: str | None = None
+    menu: list[str] = Field(default_factory=list)
+    vibe_blurb: str | None = None

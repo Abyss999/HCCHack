@@ -1,0 +1,671 @@
+[
+  {
+    "name": "Xochi",
+    "google_place_id": "ChIJsT1r2yO_QIYRdz286CS4Kt0",
+    "address": "1777 Walker St, Houston, TX 77010, United States",
+    "lat": 29.7546087,
+    "lng": -95.35884089999999,
+    "cuisine_tags": [
+      "oaxacan",
+      "mexican",
+      "mezcal"
+    ],
+    "price_tier": "$$$",
+    "rating": 4.6,
+    "menu": [
+      "Tlayuda de Res (grilled steak, mole negro, quesillo on crispy tortilla)",
+      "Barbacoa de Res de Zaachila",
+      "Mole Negro con Pato",
+      "Chapulines (toasted grasshoppers, guacamole)",
+      "Tamales de Rajas (roasted pepper & cheese)"
+    ],
+    "vibe_blurb": "Dramatic Oaxacan sanctuary inside the Marriott Marquis with bold murals, mezcal flights, and a vibrant antojito bar."
+  },
+  {
+    "name": "Pappas Bros. Steakhouse",
+    "google_place_id": "ChIJ6aLOqzy_QIYRUwovZb_mO00",
+    "address": "1200 McKinney St, Houston, TX 77010, United States",
+    "lat": 29.7555448,
+    "lng": -95.36312579999999,
+    "cuisine_tags": [
+      "steakhouse",
+      "american",
+      "seafood"
+    ],
+    "price_tier": "$$$$",
+    "rating": 4.6,
+    "menu": [
+      "USDA Prime Dry-Aged Bone-In Ribeye",
+      "Jumbo Lump Crabcakes",
+      "Bacon-Wrapped Scallops",
+      "Spanish Octopus Carpaccio",
+      "Bananas Foster Bread Pudding"
+    ],
+    "vibe_blurb": "Opulent flagship steakhouse with white tablecloths, a world-class wine cellar, and flawless prime beef in the heart of downtown."
+  },
+  {
+    "name": "Toro Toro",
+    "google_place_id": "ChIJx5IjV9W_QIYR8vy3_t2ySsY",
+    "address": "1300 Lamar St, Houston, TX 77010, United States",
+    "lat": 29.7540885,
+    "lng": -95.36274829999999,
+    "cuisine_tags": [
+      "pan-latin",
+      "steakhouse",
+      "sushi",
+      "ceviche"
+    ],
+    "price_tier": "$$$",
+    "rating": 4.3,
+    "menu": [
+      "Toro Toro Churrasco (tableside-carved rod\u00edzio steak)",
+      "Redfish Ceviche",
+      "Crab Toast with guacamole",
+      "Peruvian Grilled Chicken with achiote",
+      "Salmon with kimchi marinade and dashi-braised bok choy"
+    ],
+    "vibe_blurb": "Glitzy Pan-Latin steakhouse on the third floor of the Four Seasons Hotel with tableside carving and a lively cocktail bar."
+  },
+  {
+    "name": "Kulture",
+    "google_place_id": "ChIJm9BVXCG_QIYRIiu1vr-o29I",
+    "address": "701 Avenida De Las Americas Suite A, Houston, TX 77010, United States",
+    "lat": 29.7545608,
+    "lng": -95.35692759999999,
+    "cuisine_tags": [
+      "caribbean",
+      "southern",
+      "soul food"
+    ],
+    "price_tier": "$$",
+    "rating": 4.4,
+    "menu": [
+      "Braised Oxtail with rice and peas",
+      "Whole Fried Snapper",
+      "Creole Fried Chicken",
+      "Southern Carbonara",
+      "Oyster Mushroom Plate"
+    ],
+    "vibe_blurb": "Urban comfort kitchen celebrating Black culinary heritage with live music on weekends and a vibrant downtown crowd."
+  },
+  {
+    "name": "Grotto Downtown",
+    "google_place_id": "ChIJQYwrJSK_QIYRxg9V72ZshzE",
+    "address": "1001 Avenida De Las Americas Suite A, Houston, TX 77010, United States",
+    "lat": 29.7541597,
+    "lng": -95.35692519999999,
+    "cuisine_tags": [
+      "italian",
+      "pizza",
+      "pasta"
+    ],
+    "price_tier": "$$$",
+    "rating": 4.3,
+    "menu": [
+      "Veal Kickerillo",
+      "Snapper Siciliano",
+      "Pasta Verdura",
+      "Pollo Francese",
+      "Neapolitan Thin Crust Margherita Pizza"
+    ],
+    "vibe_blurb": "Warm Italian trattoria near the George R. Brown Convention Center with a chic patio and a generous happy hour."
+  },
+  {
+    "name": "Treebeards",
+    "google_place_id": "ChIJc9VbTSW_QIYRLx9rwGYS7dk",
+    "address": "Courtyard level in the Cloister, 1117 Texas St, Houston, TX 77002, United States",
+    "lat": 29.7594641,
+    "lng": -95.3605164,
+    "cuisine_tags": [
+      "southern",
+      "cajun",
+      "soul food"
+    ],
+    "price_tier": "$",
+    "rating": 4.7,
+    "menu": [
+      "Red Beans & Rice with smoked link sausage",
+      "Chicken & Sausage Gumbo",
+      "Jambalaya",
+      "Chicken \u00c9touff\u00e9e",
+      "Bread Pudding with bourbon sauce"
+    ],
+    "vibe_blurb": "Beloved downtown lunch counter serving slow-cooked Southern Creole food since 1978; weekdays only, cash welcomed."
+  },
+  {
+    "name": "La Carafe",
+    "google_place_id": "ChIJuSG1wi-_QIYRuDrFs9Jysgo",
+    "address": "813 Congress St, Houston, TX 77002, United States",
+    "lat": 29.7630737,
+    "lng": -95.3618702,
+    "cuisine_tags": [
+      "wine bar",
+      "bar",
+      "american"
+    ],
+    "price_tier": "$",
+    "rating": 4.6,
+    "menu": [
+      "House Red Wine by the glass",
+      "House White Wine by the glass",
+      "Imported Beer selection",
+      "Cheese plate",
+      "Charcuterie board"
+    ],
+    "vibe_blurb": "Houston's oldest bar in an 1860 building \u2014 candlelit, cash-only, no music, allegedly haunted, and utterly irreplaceable."
+  },
+  {
+    "name": "Huynh Restaurant",
+    "google_place_id": "ChIJgRlKyCG_QIYRj2aexIUYdJw",
+    "address": "912 St Emanuel St, Houston, TX 77003, United States",
+    "lat": 29.7516771,
+    "lng": -95.3555461,
+    "cuisine_tags": [
+      "vietnamese",
+      "pho",
+      "asian"
+    ],
+    "price_tier": "$",
+    "rating": 4.7,
+    "menu": [
+      "Pho Tai (rare sliced beef noodle soup)",
+      "B\u00fan B\u00f2 Hu\u1ebf (spicy Hue lemongrass noodle soup)",
+      "Com Bo Luc Lac (shaking beef tenderloin on rice)",
+      "B\u00e1nh M\u00ec Th\u1ecbt (pork banh mi sandwich)",
+      "Ch\u1ea3 Gi\u00f2 (fried spring rolls with nuoc cham)"
+    ],
+    "vibe_blurb": "Family-run Vietnamese gem just east of downtown \u2014 BYOB-friendly, no-frills d\u00e9cor, and some of Houston's most authentic pho."
+  },
+  {
+    "name": "Irma's Original",
+    "google_place_id": "ChIJcyj6ddi-QIYRF4ypQxQKIUw",
+    "address": "22 N Chenevert St, Houston, TX 77002, United States",
+    "lat": 29.7602168,
+    "lng": -95.352043,
+    "cuisine_tags": [
+      "tex-mex",
+      "mexican",
+      "breakfast"
+    ],
+    "price_tier": "$$",
+    "rating": 3.9,
+    "menu": [
+      "Enchiladas de Pollo with green sauce",
+      "Enchiladas de Queso with chile ancho sauce",
+      "Tamales de Puerco",
+      "Caldo de Res",
+      "Irma's Famous House Lemonade"
+    ],
+    "vibe_blurb": "No-printed-menu Mexican institution with unbeatable lemonade and decades of old-Houston warmth near the courthouse."
+  },
+  {
+    "name": "Irma's Southwest",
+    "google_place_id": "ChIJLwThWiS_QIYRLB1R92pKz3w",
+    "address": "1475 Texas Ave, Houston, TX 77002, United States",
+    "lat": 29.7578573,
+    "lng": -95.35860950000001,
+    "cuisine_tags": [
+      "tex-mex",
+      "mexican",
+      "lunch"
+    ],
+    "price_tier": "$$",
+    "rating": 4.4,
+    "menu": [
+      "Chile Con Queso con Picadillo",
+      "Enchiladas Verdes",
+      "Chicken Fajitas",
+      "Queso Flameado",
+      "Tres Leches Cake"
+    ],
+    "vibe_blurb": "Lively Tex-Mex spot inside the Catalyst building, beloved by downtown workers and Minute Maid Park gameday crowds."
+  },
+  {
+    "name": "Brennan's of Houston",
+    "google_place_id": "ChIJh1u1L2-_QIYRS8CnhxGTg9A",
+    "address": "3300 Smith St, Houston, TX 77006, United States",
+    "lat": 29.7430036,
+    "lng": -95.3814613,
+    "cuisine_tags": [
+      "creole",
+      "cajun",
+      "southern",
+      "brunch"
+    ],
+    "price_tier": "$$$",
+    "rating": 4.6,
+    "menu": [
+      "Turtle Soup au Sherry",
+      "Bananas Foster (flamb\u00e9ed tableside)",
+      "Shrimp & Andouille Grits",
+      "Pan-Roasted Gulf Snapper with crab butter",
+      "Eggs Hussarde"
+    ],
+    "vibe_blurb": "Houston's grande dame of Creole cuisine since 1967 \u2014 chandeliered rooms, tuxedoed servers, and legendary Sunday jazz brunch."
+  },
+  {
+    "name": "Josephine's Gulf Coast Tradition",
+    "google_place_id": "ChIJ87bI7ue_QIYRkqpk9OU8kr0",
+    "address": "318 Gray St, Houston, TX 77002, United States",
+    "lat": 29.7518539,
+    "lng": -95.3768539,
+    "cuisine_tags": [
+      "gulf coast seafood",
+      "cajun",
+      "southern"
+    ],
+    "price_tier": "$$",
+    "rating": 4.6,
+    "menu": [
+      "Fried Shrimp Po'boy with fries",
+      "Fried Oyster Po'boy",
+      "Boiled Blue Crab",
+      "Shrimp & Grits with tasso gravy",
+      "Banana Pudding with Nilla wafers"
+    ],
+    "vibe_blurb": "Michelin-recognized Gulf Coast seafood house with porch seating, superb po'boys, and a breezy neighborhood atmosphere near Midtown."
+  },
+  {
+    "name": "Phoenicia Specialty Foods",
+    "google_place_id": "ChIJMySlQyO_QIYRfT2Tz0HkWDw",
+    "address": "1001 Austin St, Houston, TX 77010, United States",
+    "lat": 29.7544406,
+    "lng": -95.3616797,
+    "cuisine_tags": [
+      "middle eastern",
+      "mediterranean",
+      "deli",
+      "international"
+    ],
+    "price_tier": "$",
+    "rating": 4.6,
+    "menu": [
+      "Housemade Hummus with warm pita",
+      "Chicken Shawarma Wrap",
+      "Falafel Plate with tabouleh",
+      "Cheese Borek (phyllo pastry)",
+      "Baklava"
+    ],
+    "vibe_blurb": "Award-winning international food market across from Discovery Green \u2014 browse global groceries then grab a fresh Middle Eastern deli bite."
+  },
+  {
+    "name": "Nancy's Hustle",
+    "google_place_id": "ChIJAbtx4uG-QIYRe2Bb6bnaZv4",
+    "address": "2704 Polk St A, Houston, TX 77003, United States",
+    "lat": 29.7456806,
+    "lng": -95.3521694,
+    "cuisine_tags": [
+      "contemporary american",
+      "bistro",
+      "michelin"
+    ],
+    "price_tier": "$$",
+    "rating": 4.7,
+    "menu": [
+      "Nancy Cakes with sturgeon caviar butter",
+      "Smash Burger",
+      "Duck Ragu Tagliatelle",
+      "Wood-Grilled Half Chicken",
+      "Pan-Roasted Rockfish"
+    ],
+    "vibe_blurb": "Michelin-recognized EaDo bistro blending diner nostalgia with fine technique \u2014 the caviar butter pancakes and smash burger are legendary."
+  },
+  {
+    "name": "Leaf & Grain",
+    "google_place_id": "ChIJc74Npjy_QIYRURd5n4UbEnk",
+    "address": "1200 McKinney St Suite 479, Houston, TX 77010, United States",
+    "lat": 29.7554797,
+    "lng": -95.3633079,
+    "cuisine_tags": [
+      "vegan",
+      "vegetarian",
+      "grain bowls",
+      "salads"
+    ],
+    "price_tier": "$",
+    "rating": 4.6,
+    "menu": [
+      "Southwest Grain Bowl (farro, black beans, roasted corn, avocado)",
+      "44 Farms Steak Salad with chimichurri",
+      "Roasted Beet & Goat Cheese Salad",
+      "Cage-Free Rotisserie Chicken Bowl",
+      "Seasonal Vegan Bowl"
+    ],
+    "vibe_blurb": "Bright fast-casual grain bowl and salad spot in the Houston Center towers \u2014 the go-to healthy weekday lunch for downtown office workers."
+  },
+  {
+    "name": "Pho Saigon",
+    "google_place_id": "ChIJzcmNwmu_QIYRzmUc0JR9UyM",
+    "address": "2808 Milam St D, Houston, TX 77006, United States",
+    "lat": 29.745101,
+    "lng": -95.37754679999999,
+    "cuisine_tags": [
+      "vietnamese",
+      "pho",
+      "asian"
+    ],
+    "price_tier": "$",
+    "rating": 4.4,
+    "menu": [
+      "Pho Dac Biet (house special beef pho)",
+      "B\u00fan B\u00f2 Hu\u1ebf (spicy Hue-style noodle soup)",
+      "Com Tam with grilled pork",
+      "Crispy Spring Rolls",
+      "Vietnamese Iced Coffee (c\u00e0 ph\u00ea s\u1eefa \u0111\u00e1)"
+    ],
+    "vibe_blurb": "No-frills Midtown pho institution voted Houston's best Vietnamese \u2014 giant aromatic bowls and a loyal following since the 1990s."
+  },
+  {
+    "name": "L\u00faa Viet Kitchen",
+    "google_place_id": "ChIJOWjym5zAQIYRwaEzkGgYEe0",
+    "address": "1540 W Alabama St UNIT 300, Houston, TX 77006, United States",
+    "lat": 29.7388755,
+    "lng": -95.39875769999999,
+    "cuisine_tags": [
+      "vietnamese",
+      "asian",
+      "banh mi"
+    ],
+    "price_tier": "$$",
+    "rating": 4.5,
+    "menu": [
+      "Signature Pho B\u00f2 (slow-simmered bone broth, rare sliced beef)",
+      "B\u00e1nh M\u00ec \u0110\u1eb7c Bi\u1ec7t (house special banh mi)",
+      "C\u01a1m T\u1ea5m B\u00ec Ch\u1ea3 (broken rice, shredded pork, egg cake)",
+      "B\u00fan Th\u1ecbt N\u01b0\u1edbng (grilled pork vermicelli bowl)",
+      "Ch\u00e8 Ba M\u00e0u (three-color layered dessert drink)"
+    ],
+    "vibe_blurb": "Modern Vietnamese caf\u00e9 in Montrose with sleek d\u00e9cor and a health-forward take on pho, banh mi, and rice plates."
+  },
+  {
+    "name": "Hugo's",
+    "google_place_id": "ChIJWZy-UJnAQIYRJwZNRAGa6JI",
+    "address": "1600 Westheimer Rd, Houston, TX 77006, United States",
+    "lat": 29.7429892,
+    "lng": -95.3996903,
+    "cuisine_tags": [
+      "regional mexican",
+      "oaxacan",
+      "brunch"
+    ],
+    "price_tier": "$$$",
+    "rating": 4.6,
+    "menu": [
+      "Cochinita Pibil (slow-roasted achiote pork)",
+      "Mole Rojo con Pollo",
+      "Camarones a la Veracruzana (Gulf shrimp in tomato-olive sauce)",
+      "Enchiladas Suizas",
+      "Tableside Guacamole"
+    ],
+    "vibe_blurb": "Award-winning regional Mexican in Montrose with a lush tropical courtyard, elaborate Sunday brunch buffet, and James Beard pedigree."
+  },
+  {
+    "name": "POST HTX Market",
+    "google_place_id": "ChIJjWyGK86_QIYR_xBpyfcdvN0",
+    "address": "401 Franklin St Suite 1200, Houston, TX 77201, United States",
+    "lat": 29.7662149,
+    "lng": -95.3648839,
+    "cuisine_tags": [
+      "food hall",
+      "international",
+      "tex-mex",
+      "casual"
+    ],
+    "price_tier": "$",
+    "rating": 4.6,
+    "menu": [
+      "El Tiempo Tex-Mex Fajitas",
+      "Craft Smash Burger",
+      "Birria Tacos with consomm\u00e9",
+      "Tonkotsu Ramen Bowl",
+      "Churro Bites with cajeta"
+    ],
+    "vibe_blurb": "Enormous adaptive-reuse food hall in a historic post office with rotating chef concepts and a rooftop terrace overlooking the skyline."
+  },
+  {
+    "name": "The Finn",
+    "google_place_id": "ChIJl6HE3zq_QIYR_D5oLSXEgN8",
+    "address": "712 Main St, Houston, TX 77002, United States",
+    "lat": 29.7587077,
+    "lng": -95.3638142,
+    "cuisine_tags": [
+      "food hall",
+      "burgers",
+      "tacos",
+      "american"
+    ],
+    "price_tier": "$",
+    "rating": 4.4,
+    "menu": [
+      "Proper Smash Burger (double patty, American cheese)",
+      "Papalo Street Tacos al Pastor",
+      "Nyam Nyam Jerk Chicken Plate",
+      "Pizza Zquare Detroit-Style Slice",
+      "Cranky Carrot Fresh-Pressed Juice"
+    ],
+    "vibe_blurb": "Chef-driven food hall in a restored Art Deco building on Main Street \u2014 ideal for diverse quick casual lunches under one roof."
+  },
+  {
+    "name": "Mai's Restaurant",
+    "google_place_id": "ChIJU6SZ8W6_QIYRcwMq_v3qT_A",
+    "address": "3403 Milam St, Houston, TX 77002, United States",
+    "lat": 29.7411646,
+    "lng": -95.37975390000001,
+    "cuisine_tags": [
+      "vietnamese",
+      "asian",
+      "late night"
+    ],
+    "price_tier": "$",
+    "rating": 4.2,
+    "menu": [
+      "Pho Tai (rare sliced beef clear broth)",
+      "Ch\u1ea3 Gi\u00f2 Cua (fried crab spring rolls)",
+      "Lemongrass Chicken on rice",
+      "B\u00fan Th\u1ecbt N\u01b0\u1edbng (BBQ pork vermicelli)",
+      "Com Ga Nuong (grilled chicken rice plate)"
+    ],
+    "vibe_blurb": "Late-night Vietnamese mainstay open until 2 a.m. \u2014 a post-concert staple near Midtown with generous portions since 1978."
+  },
+  {
+    "name": "Ouisie's Table",
+    "google_place_id": "ChIJ0ex0eCLBQIYRUt2Q8lj_o98",
+    "address": "3939 San Felipe St, Houston, TX 77027, United States",
+    "lat": 29.7460082,
+    "lng": -95.4431674,
+    "cuisine_tags": [
+      "southern",
+      "american",
+      "seafood",
+      "brunch"
+    ],
+    "price_tier": "$$$",
+    "rating": 4.4,
+    "menu": [
+      "Pimento Cheese with crostini",
+      "Gulf Shrimp & Grits with tasso ham",
+      "Gulf Coast Oysters on the half shell",
+      "Chicken Fried Steak with cream gravy",
+      "Peach Cobbler with vanilla ice cream"
+    ],
+    "vibe_blurb": "50-year-old Southern institution with a garden terrace and white tablecloths \u2014 a beloved River Oaks brunch and dinner destination."
+  },
+  {
+    "name": "The Rustic Houston",
+    "google_place_id": "ChIJI9sq1-u_QIYRCqNIcZPjXMw",
+    "address": "1836 Polk St, Houston, TX 77003, United States",
+    "lat": 29.7500487,
+    "lng": -95.359747,
+    "cuisine_tags": [
+      "american",
+      "bar",
+      "live music",
+      "burgers"
+    ],
+    "price_tier": "$$",
+    "rating": 4.3,
+    "menu": [
+      "Smoked Brisket Sandwich with jalape\u00f1o aioli",
+      "Chicken & Waffle Stack",
+      "Craft Burger with Texas cheddar",
+      "Shrimp Tacos with mango slaw",
+      "Loaded Waffle Fries"
+    ],
+    "vibe_blurb": "Sprawling outdoor venue near EaDo with a massive patio, live music nightly, and crowd-pleasing American comfort food for groups."
+  },
+  {
+    "name": "Uchi Houston",
+    "google_place_id": "ChIJq6qqqma_QIYRxrKS6EACh7o",
+    "address": "904 Westheimer Rd, Houston, TX 77006, United States",
+    "lat": 29.7448938,
+    "lng": -95.3907229,
+    "cuisine_tags": [
+      "japanese",
+      "sushi",
+      "omakase"
+    ],
+    "price_tier": "$$$$",
+    "rating": 4.7,
+    "menu": [
+      "Omakase Chef's Seasonal Tasting",
+      "Machi Cure (smoked yellowtail, yuzu, marcona almonds)",
+      "Daily Crudo with seasonal garnish",
+      "Wagyu Beef Tataki",
+      "Foie Gras Nigiri"
+    ],
+    "vibe_blurb": "James Beard Award-winning Japanese restaurant with a minimalist Montrose interior \u2014 intimate and inventive omakase for serious sushi lovers."
+  },
+  {
+    "name": "Truth BBQ",
+    "google_place_id": "ChIJUfA6wszBQIYRmrSeublM3zY",
+    "address": "110 S Heights Blvd, Houston, TX 77007, United States",
+    "lat": 29.7690785,
+    "lng": -95.3976004,
+    "cuisine_tags": [
+      "bbq",
+      "texas barbecue",
+      "american"
+    ],
+    "price_tier": "$$",
+    "rating": 4.5,
+    "menu": [
+      "18-Hour Smoked Brisket",
+      "St. Louis Pork Ribs",
+      "Full Beef Rib",
+      "Smoked Turkey Breast",
+      "Jalape\u00f1o Cheddar Sausage"
+    ],
+    "vibe_blurb": "Award-winning Texas BBQ institution with 18-hour wood-fired offset smokers \u2014 expect a line, bring patience, and leave with a meat coma."
+  },
+  {
+    "name": "The Pit Room",
+    "google_place_id": "ChIJgcrcf4LAQIYREwyikgKgLco",
+    "address": "1201 Richmond Ave, Houston, TX 77006, United States",
+    "lat": 29.7342641,
+    "lng": -95.3940397,
+    "cuisine_tags": [
+      "bbq",
+      "texas barbecue",
+      "tex-mex"
+    ],
+    "price_tier": "$$",
+    "rating": 4.5,
+    "menu": [
+      "Smoked Beef Brisket by the pound",
+      "Pulled Pork Sandwich",
+      "Smoked Beef Rib",
+      "Jalape\u00f1o Cheddar Sausage",
+      "Banana Pudding"
+    ],
+    "vibe_blurb": "Serious Montrose BBQ joint open 7 days from breakfast through dinner \u2014 picnic tables, long smoke, and zero compromises."
+  },
+  {
+    "name": "Roostar Vietnamese Grill",
+    "google_place_id": "ChIJg6Y24KW_QIYRtyRBBxiMge8",
+    "address": "2929 Navigation Blvd Suite 190, Houston, TX 77003, United States",
+    "lat": 29.7566986,
+    "lng": -95.34066159999999,
+    "cuisine_tags": [
+      "vietnamese",
+      "fast casual",
+      "grilled"
+    ],
+    "price_tier": "$",
+    "rating": 4.5,
+    "menu": [
+      "Lemongrass Chicken Bowl",
+      "Five Spice Grilled Pork Rice Plate",
+      "Pho Dac Biet",
+      "B\u00e1nh M\u00ec Combo",
+      "Boba Milk Tea"
+    ],
+    "vibe_blurb": "Counter-service Vietnamese grill with bright flavors, fast service, and a popular in-and-out vibe for students and office workers."
+  },
+  {
+    "name": "L\u00faa Viet Kitchen (Heights)",
+    "google_place_id": "ChIJZ77FOADHQIYRR6Jz_3uDOI4",
+    "address": "1215 N Durham Dr Suite A-100, Houston, TX 77008, United States",
+    "lat": 29.7939603,
+    "lng": -95.4117583,
+    "cuisine_tags": [
+      "vietnamese",
+      "asian",
+      "noodles"
+    ],
+    "price_tier": "$$",
+    "rating": 4.5,
+    "menu": [
+      "Pho B\u00f2 Vi\u00ean (beef meatball pho)",
+      "B\u00fan Ch\u1ea3 H\u00e0 N\u1ed9i (grilled pork meatball vermicelli)",
+      "C\u01a1m T\u1ea5m (broken rice, grilled pork chop)",
+      "Crispy Imperial Rolls with fresh herbs",
+      "Vietnamese Iced Coffee"
+    ],
+    "vibe_blurb": "Airy Heights Vietnamese caf\u00e9 with minimalist d\u00e9cor, consistently fresh pho, and a loyal neighborhood lunch crowd."
+  },
+  {
+    "name": "Revelry on Richmond",
+    "google_place_id": "ChIJG4stiITAQIYRDGOfjOckhR8",
+    "address": "1613 Richmond Ave, Houston, TX 77006, United States",
+    "lat": 29.7341357,
+    "lng": -95.4000827,
+    "cuisine_tags": [
+      "american",
+      "bar",
+      "brunch",
+      "comfort food"
+    ],
+    "price_tier": "$$",
+    "rating": 4.4,
+    "menu": [
+      "Brisket Grilled Cheese",
+      "Avocado Toast with poached egg",
+      "Nashville Hot Chicken Sandwich",
+      "Truffle Mac & Cheese",
+      "Frozen Ros\u00e9 Sangria"
+    ],
+    "vibe_blurb": "Trendy Greenway-area brunch and bar spot with a sprawling patio, craft cocktails, and a hip young-professional crowd."
+  },
+  {
+    "name": "Bludorn",
+    "google_place_id": "ChIJQcMJHSO_QIYRIYWZEuijldg",
+    "address": "807 Taft St, Houston, TX 77019, United States",
+    "lat": 29.758876,
+    "lng": -95.38565,
+    "cuisine_tags": [
+      "contemporary american",
+      "fine dining",
+      "french-inspired"
+    ],
+    "price_tier": "$$$",
+    "rating": 4.6,
+    "menu": [
+      "Crispy Pig's Head Tonnato",
+      "Hamachi Crudo with yuzu",
+      "Seared Duck Breast with cherry jus",
+      "Pan-Roasted Halibut with beurre blanc",
+      "Butter Cake with seasonal fruit compote"
+    ],
+    "vibe_blurb": "Sleek, buzzy downtown fine-dining destination from Aaron Bludorn \u2014 French-inflected American cuisine with a gorgeous bar and date-night energy."
+  }
+]
