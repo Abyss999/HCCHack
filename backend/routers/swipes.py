@@ -11,7 +11,9 @@ from models.swipe import Swipe
 from models.user import User
 from schemas.restaurant import RestaurantOut
 from schemas.swipe import ResultsOut, SwipeAck, SwipeIn, TopResult
+from schemas.vibe_pick import VibePickOut
 from security import limiter
+from services.gemini_service import GeminiService, get_gemini_service
 from services.matching_service import MatchingService, get_matching_service
 from services.notification_service import NotificationService, get_notification_service
 from services.session_service import SessionService, get_session_service
@@ -151,6 +153,48 @@ async def _finalize_top3(
         body="Open DishMatch to see what your group picked.",
         data={"session_id": str(session.id), "type": "top3_ready"},
     )
+
+
+@router.get("/sessions/{session_id}/vibe-pick", response_model=VibePickOut)
+async def get_vibe_pick(
+    session_id: UUID,
+    current: User = Depends(get_current_user),
+    sessions: SessionService = Depends(get_session_service),
+    gemini: GeminiService = Depends(get_gemini_service),
+) -> VibePickOut:
+    session = await sessions.get_by_id(session_id)
+    if not sessions.is_member(session, current.id):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not a session member")
+
+    yes_swipes = await Swipe.find(
+        Swipe.session_id == session_id,
+        Swipe.user_id == current.id,
+        Swipe.direction == "yes",
+    ).to_list()
+
+    if not yes_swipes:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No yes swipes yet")
+
+    yes_restaurants: list[Restaurant] = []
+    for s in yes_swipes:
+        r = await Restaurant.get(s.restaurant_id)
+        if r is not None:
+            yes_restaurants.append(r)
+
+    if not yes_restaurants:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No yes swipes yet")
+
+    pick = await gemini.get_vibe_pick(yes_restaurants, current)
+    if pick is None:
+        # Fallback: return the first yes restaurant with a generic narrative
+        best = yes_restaurants[0]
+        return VibePickOut(
+            restaurant=_restaurant_out(best),
+            narrative=f"Based on your swipes, {best.name} looks like a great fit for you!",
+        )
+
+    best = next(r for r in yes_restaurants if r.id == pick["restaurant_id"])
+    return VibePickOut(restaurant=_restaurant_out(best), narrative=pick["narrative"])
 
 
 async def _maybe_nudge_laggards(

@@ -1,3 +1,4 @@
+import asyncio
 import hashlib
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
@@ -33,8 +34,9 @@ class GroupFilter:
 
 
 class PlacesService:
-    def __init__(self, settings: Settings | None = None) -> None:
+    def __init__(self, settings: Settings | None = None, gemini=None) -> None:
         self.settings = settings or get_settings()
+        self._gemini = gemini  # injected lazily to avoid circular imports
 
     # ---------- group filter derivation ----------
 
@@ -184,51 +186,87 @@ class PlacesService:
 
         existing = await Restaurant.find_one(Restaurant.google_place_id == place_id)
         if existing is None:
-            # First time we see this place — fetch the editorial summary once, then cache forever.
-            description = await self._fetch_description(place_id)
-            restaurant = Restaurant(google_place_id=place_id, description=description, **fields)
+            details = await self._fetch_details(place_id)
+            restaurant = Restaurant(
+                google_place_id=place_id,
+                description=details.get("description"),
+                reviews=details.get("reviews"),
+                **fields,
+            )
             await restaurant.insert()
+            asyncio.create_task(self._generate_ai_fields(restaurant))
             return restaurant
 
         for key, value in fields.items():
             setattr(existing, key, value)
-        # Back-fill description for previously cached restaurants that don't have one yet.
-        if not existing.description:
-            existing.description = await self._fetch_description(place_id)
+        if not existing.description or not existing.reviews:
+            details = await self._fetch_details(place_id)
+            if not existing.description:
+                existing.description = details.get("description")
+            if not existing.reviews:
+                existing.reviews = details.get("reviews")
         await existing.save()
+        if existing.vibe_blurb is None:
+            asyncio.create_task(self._generate_ai_fields(existing))
         return existing
 
-    async def _fetch_description(self, place_id: str) -> str | None:
-        """One-shot Places Details call to grab editorial_summary. Returns None on any failure
-        so a missing description never blocks a card from rendering."""
+    async def _fetch_details(self, place_id: str) -> dict:
+        """Fetches editorial_summary and reviews from Places Details. Never raises."""
         if not self.settings.google_places_api_key:
-            return None
+            return {}
         params = {
             "key": self.settings.google_places_api_key,
             "place_id": place_id,
-            "fields": "editorial_summary",
+            "fields": "editorial_summary,reviews",
         }
         try:
             async with httpx.AsyncClient(timeout=5.0) as client:
                 resp = await client.get(GOOGLE_DETAILS_URL, params=params)
             if resp.status_code != 200:
-                return None
+                return {}
             body = resp.json()
             if body.get("status") != "OK":
-                return None
-            summary = (body.get("result") or {}).get("editorial_summary") or {}
-            text = summary.get("overview")
-            if not isinstance(text, str) or not text.strip():
-                return None
-            # Cap so card/result layout never has to deal with novel-length text.
-            MAX_LEN = 180
-            stripped = text.strip()
-            if len(stripped) <= MAX_LEN:
-                return stripped
-            return stripped[: MAX_LEN - 1].rsplit(" ", 1)[0] + "…"
-        except Exception:  # noqa: BLE001 — never fail a search because details flopped
-            return None
+                return {}
+            result = body.get("result") or {}
+            out: dict = {}
+
+            summary = (result.get("editorial_summary") or {}).get("overview")
+            if isinstance(summary, str) and summary.strip():
+                MAX_LEN = 180
+                text = summary.strip()
+                out["description"] = text if len(text) <= MAX_LEN else text[: MAX_LEN - 1].rsplit(" ", 1)[0] + "…"
+
+            raw_reviews = result.get("reviews") or []
+            snippets = [r["text"] for r in raw_reviews if isinstance(r.get("text"), str) and r["text"].strip()]
+            if snippets:
+                out["reviews"] = snippets[:3]
+
+            return out
+        except Exception:  # noqa: BLE001
+            return {}
+
+    async def _generate_ai_fields(self, restaurant: Restaurant) -> None:
+        """Background task: call Gemini to fill vibe_blurb + overall_vibe_quotes. Never raises."""
+        try:
+            if self._gemini is None:
+                from services.gemini_service import GeminiService
+                self._gemini = GeminiService(self.settings)
+            data = await self._gemini.generate_vibe_fields(
+                name=restaurant.name,
+                cuisine_tags=restaurant.cuisine_tags,
+                description=restaurant.description,
+                reviews=restaurant.reviews,
+            )
+            if data:
+                if data.get("vibe_blurb"):
+                    restaurant.vibe_blurb = data["vibe_blurb"]
+                if data.get("overall_vibe_quotes"):
+                    restaurant.overall_vibe_quotes = data["overall_vibe_quotes"]
+                await restaurant.save()
+        except Exception:  # noqa: BLE001
+            pass
 
 
 def get_places_service() -> PlacesService:
-    return PlacesService()
+    from services.gemini_service import GeminiService
+    return PlacesService(gemini=GeminiService())

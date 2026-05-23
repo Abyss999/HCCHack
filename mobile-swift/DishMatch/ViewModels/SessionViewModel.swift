@@ -77,6 +77,14 @@ final class SessionViewModel: ObservableObject {
         results = out.top
     }
 
+    func fetchVibePick(sessionId: UUID) async throws -> VibePick {
+        try await api.get("/sessions/\(sessionId)/vibe-pick", token: token)
+    }
+
+    func fetchPersonalizedFit(restaurantId: UUID, sessionId: UUID) async throws -> PersonalizedFit {
+        try await api.get("/restaurants/\(restaurantId)/fit?session_id=\(sessionId)", token: token)
+    }
+
     func fetchUserSessions() async throws -> [Session] {
         try await api.get("/users/me/sessions", token: token)
     }

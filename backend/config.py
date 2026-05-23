@@ -33,6 +33,7 @@ class Settings(BaseSettings):
 
     # Third-party
     google_places_api_key: str | None = None
+    gemini_api_key: str | None = None
     use_mock_restaurants: bool = False
     expo_push_url: str = "https://exp.host/--/api/v2/push/send"
 
