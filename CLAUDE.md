@@ -32,7 +32,8 @@ HCCHack/
 │   │   ├── users.py
 │   │   ├── sessions.py
 │   │   ├── restaurants.py
-│   │   └── swipes.py
+│   │   ├── swipes.py
+│   │   └── recommendations.py       # POST /recommendations — Atlas sample_restaurants scoring
 │   ├── models/                      # Beanie Document classes (DB)
 │   │   ├── user.py
 │   │   ├── session.py
@@ -45,6 +46,7 @@ HCCHack/
 │   │   ├── places_service.py
 │   │   ├── matching_service.py
 │   │   ├── notification_service.py
+│   │   ├── recommendation_service.py # Atlas sample_restaurants aggregation pipeline
 │   │   └── gemini_service.py        # Gemini 2.5 Flash: vibe blurb, vibe pick, personalized fit
 │   ├── ws/
 │   │   └── manager.py               # ConnectionManager
@@ -56,7 +58,7 @@ HCCHack/
 └── mobile-swift/                    # SwiftUI iOS app (iOS 16+)
     ├── DishMatch.xcodeproj
     ├── project.yml                  # xcodegen spec
-    └── DishMatch/
+    ├── DishMatch/
         ├── App/                     # DishMatchApp, AppDelegate, ContentCoordinator + navigators
         ├── Core/
         │   ├── Auth/                # AuthStore (@ObservableObject), KeychainService
@@ -73,6 +75,17 @@ HCCHack/
         │   └── Components/          # RestaurantCard (DragGesture), SwipeStack, CodeDisplay, etc.
         ├── Config/                  # Config.swift + Debug/Release xcconfig (API_BASE_URL)
         └── Resources/               # Assets.xcassets, Info.plist
+    └── DishMatchMessages/           # iMessage app extension
+        ├── MessagesViewController.swift  # MSMessagesAppViewController entry point
+        ├── MessageAuthHelper.swift       # token retrieval shared with main app Keychain group
+        ├── MessageSessionService.swift   # create/join session from iMessage context
+        ├── MSMessageBuilder.swift        # encode session URL into MSMessage
+        ├── SessionURLParser.swift        # decode session URL from incoming MSMessage
+        └── Views/
+            ├── CompactLoginView.swift    # compact-mode login (email/pass)
+            ├── CompactSessionView.swift  # compact-mode session code display + join
+            ├── ExpandedSwipeView.swift   # full swipe UI inside Messages
+            └── ExpandedResultsView.swift # results leaderboard inside Messages
 ```
 
 ## Architectural decisions
@@ -99,6 +112,8 @@ HCCHack/
 - **Swipe ceiling override** — `Session.swipe_ceiling_override: int | None` (3–30, schema-validated) lets each session set its own forced-top-3 threshold instead of the global `MatchingService.SWIPE_CEILING = 10`. `MatchingService.ceiling_for(session)` is the single read site; both `all_members_done` and the laggard-nudge helper in `routers/swipes.py` go through it. The mobile sheet exposes this as a slider (3–30, step 1) in `CreateSessionSheet`.
 - **Profile layout + multi-select budget** — `ProfileView` is laid out as a header card + a single "Preferences" card grouping (dietary, cuisines, budget, max distance) + an Appearance card + actions. Sections are visually separated by `theme.textSecondary.opacity(0.12)` 1pt rules — no nested cards. Distance is a continuous `Slider` (1.6–80 km, step 0.8) displayed in miles. **Budget is multi-select** in `ProfileViewModel.budgetRanges: [String]`; `savePreferences()` collapses to the max via `Self.budgetOrder` and sends a single `budget_range` to the backend (the `User.preferences` schema stays single-value — for sessions we send the full list as `budget_overrides`). After a successful PUT, `auth.updateUser(updated)` is called so other views see fresh prefs immediately.
 - **Cuisine + dietary tag sets** — Cuisines (`Italian, Mexican, American, Chinese, Japanese, Thai, Korean, Vietnamese, Indian, Mediterranean, Greek, French, Spanish, Middle Eastern, BBQ, Burgers, Pizza, Sushi, Seafood, Steakhouse, Brunch, Bakery, Cafe, Dessert, Vegan, Vegetarian`) and dietary (`Vegetarian, Vegan, Gluten-free, Dairy-free, Nut-free, Halal, Kosher, Pescatarian`) are duplicated in both `ProfileView` and `CreateSessionSheet` as `let` arrays. Keep them in sync when adding new tags.
+- **Recommendations endpoint** — `POST /recommendations` (in `routers/recommendations.py`) scores Atlas's built-in `sample_restaurants` dataset against user-supplied preferences via a single MongoDB aggregation pipeline. Scoring: cuisine match = 50 pts, borough match = 25 pts, latest health-inspection grade (A/B/C) = 50/30/10 pts. The `RecommendationService.top(req)` method builds the pipeline, runs it with Motor, and returns `list[RecommendationOut]`. Rate-limited by `RATE_LIMIT_RESTAURANTS`. This endpoint is independent of the Google Places pipeline — it queries the Atlas sample DB directly, so it works even when `GOOGLE_PLACES_API_KEY` is absent. **Requires Atlas target** (`MONGO_TARGET=atlas`) since the `sample_restaurants` collection lives in the Atlas sample dataset, not the local Docker Mongo.
+- **iMessage Extension** — `DishMatchMessages` is a separate Xcode target (iMessage app extension). `MessagesViewController` drives the compact/expanded lifecycle. Compact mode shows login (`CompactLoginView`) or session code entry (`CompactSessionView`). Expanded mode shows the full swipe stack (`ExpandedSwipeView`) and results leaderboard (`ExpandedResultsView`). Auth tokens are shared with the main app via a Keychain access group (`MessageAuthHelper`). Session state is encoded into the `MSMessage` URL by `MSMessageBuilder` and decoded on receive by `SessionURLParser`. The extension reuses the same backend API — no separate endpoints.
 - **AI features ship in Phase 1.** Gemini 2.5 Flash is live for vibe blurb generation, vibe pick, and personalized fit. The deferred phase is Atlas Vector Search (embeddings-based matching) — still blocked on an Atlas migration.
 - **Containerization first.** No host-path assumptions, all config via env vars, single `Dockerfile` for the API — so DigitalOcean deploy is a non-event later.
 
