@@ -99,8 +99,13 @@ struct LobbyView: View {
         }
         .navigationBarHidden(true)
         .task {
-            try? await sessionVM.fetchSession(sessionId)
             members = sessionVM.session?.members ?? []
+            do {
+                try await sessionVM.fetchSession(sessionId)
+                members = sessionVM.session?.members ?? []
+            } catch {
+                print("[LobbyView] fetchSession failed: \(error)")
+            }
             guard let token = sessionVM.token else { return }
             ws.connect(sessionId: sessionId, token: token)
             ws.onMemberJoined = { p in
