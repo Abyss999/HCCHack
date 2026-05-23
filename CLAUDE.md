@@ -170,24 +170,23 @@ All security primitives live in `backend/security.py` and are wired in `main.py`
 
 The mobile design is dark-first, warm coral (`#d97757`) primary, referencing `/Users/nosaj/Downloads/DishMatch Redesign Standalone.html` as the visual source of truth.
 
-**Color tokens** live in two places that must stay in sync:
-- `mobile/tailwind.config.js` — Tailwind theme (used for `className` utilities)
-- `mobile/src/hooks/useColors.ts` — imperative `LIGHT`/`DARK` objects (used for inline `style={}`)
+**Color tokens** live in `mobile-swift/DishMatch/Core/Theme/AppTheme.swift` (30+ tokens, dark-first).
 
-Key dark-mode values: `bg: #0a0a0a`, `surface: #1a1a1a`, `surfaceLight: #262626`. New tokens added: `cardBorder`, `chipBg`, `chipBorder`, `progressBg` — all primary-tinted rgba values.
+Key dark-mode values: `bg: #0a0a0a`, `surface: #1a1a1a`, `surfaceLight: #262626`. Tokens include `cardBorder`, `chipBg`, `chipBorder`, `progressBg` — all primary-tinted rgba values.
 
 **Component patterns (match the HTML design):**
-- **Buttons** — primary uses `borderRadius: 10`, `paddingVertical: 14`, coral shadow (`shadowColor: primary, opacity: 0.3`). No `expo-linear-gradient` installed; use solid primary color.
-- **Cards** — `borderRadius: 12`, `borderWidth: 1`, `borderColor: colors.cardBorder`.
-- **Chips/tags** — `borderRadius: 8`, `chipBg` + `chipBorder`, never use pill shape (`borderRadius: 999`) for preference chips.
-- **Inputs** — `borderRadius: 10`, `fontFamily: IBM Plex Mono`, `borderColor: colors.inputBorder` (primary at ~25% opacity).
-- **Progress bars** — `height: 3`, `backgroundColor: colors.progressBg` track, primary fill.
+
+- **Buttons** — primary uses `cornerRadius: 10`, vertical padding 14pt, coral shadow (primary at 30% opacity). Use solid primary color.
+- **Cards** — `cornerRadius: 12`, `borderWidth: 1`, `cardBorder` color.
+- **Chips/tags** — `cornerRadius: 8`, `chipBg` + `chipBorder`, never use pill shape for preference chips.
+- **Inputs** — `cornerRadius: 10`, IBM Plex Mono font, `inputBorder` color (primary at ~25% opacity).
+- **Progress bars** — `height: 3`, `progressBg` track color, primary fill.
 - **Restaurant card** — has both swipe gestures AND visible Pass/Like buttons at the bottom of the info section.
 - **Results list** — compact flat list with 40×40 square rank badges (medal emoji 🥇🥈🥉) and a slim 2px agreement bar. No full image cards.
-- **Profile section titles** — `fontSize: 11, fontWeight: "700", letterSpacing: 0.6, textTransform: "uppercase"`, muted `rgba(255,255,255,0.5)`.
-- **CodeDisplay boxes** — 50×50, `borderColor: rgba(217,119,87,0.4)`, IBM Plex Mono 18px primary text.
-- **Home header** — compact with `borderBottomColor: rgba(255,255,255,0.06)` divider.
-- **"How it works" tips** — left-border accent block: `borderLeftWidth: 3, borderLeftColor: rgba(217,119,87,0.4)`, warm-tinted bg.
+- **Profile section titles** — `fontSize: 11, fontWeight: .bold, letterSpacing: 0.6, textCase: .uppercase`, muted white at 50% opacity.
+- **CodeDisplay boxes** — 50×50, primary border at 40% opacity, IBM Plex Mono 18px primary text.
+- **Home header** — compact with bottom divider at 6% white opacity.
+- **"How it works" tips** — left-border accent block: 3pt left border at 40% primary opacity, warm-tinted background.
 
 ## Pointers
 
