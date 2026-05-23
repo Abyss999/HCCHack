@@ -110,6 +110,16 @@ class GeminiService:
         candidates = []
         for row in top:
             r: Restaurant = row["restaurant"]
+            # menu_with_reviews is the strongest signal — dish-level quotes from real
+            # reviews. Fall back to generic reviews when those aren't available.
+            menu_with_reviews = [
+                {
+                    "item": mr.get("item"),
+                    "quotes": [q.get("text") for q in (mr.get("quotes") or [])],
+                }
+                for mr in (r.menu_reviews or [])
+            ]
+            vibe_quotes = [q.get("text") for q in (r.overall_vibe_quotes or [])]
             candidates.append({
                 "name": r.name,
                 "cuisine_tags": r.cuisine_tags,
@@ -117,7 +127,9 @@ class GeminiService:
                 "rating": r.rating,
                 "vibe_blurb": r.vibe_blurb,
                 "menu_highlights": r.menu[:5],
-                "reviews": r.reviews[:5],
+                "menu_with_reviews": menu_with_reviews,
+                "vibe_quotes": vibe_quotes,
+                "generic_reviews": r.reviews[:3],
                 "group_yes_pct": row["score_pct"],
             })
 
@@ -125,10 +137,19 @@ class GeminiService:
             "You are picking one restaurant for a group based on vibe, group preferences, "
             "and real customer reviews. The group already voted; here are their top 3.\n\n"
             f"GROUP MEMBERS AND PREFERENCES:\n{json.dumps(group_prefs, indent=2)}\n\n"
-            f"TOP 3 CANDIDATES (with reviews):\n{json.dumps(candidates, indent=2)}\n\n"
+            f"TOP 3 CANDIDATES:\n{json.dumps(candidates, indent=2)}\n\n"
             "Pick the ONE restaurant whose vibe + menu + reviews best fit the group. "
-            "Weigh reviews heavily (they're real). Tie-break with group_yes_pct.\n\n"
-            'Respond ONLY with JSON: {"pick": "<exact restaurant name>", "reasoning": "<2 sentences explaining the pick based on vibe and reviews>"}'
+            "Prioritize signals in this order:\n"
+            "  1. menu_with_reviews — dish-level quotes are the strongest signal.\n"
+            "  2. vibe_quotes — atmosphere quotes from real diners.\n"
+            "  3. generic_reviews and vibe_blurb — fallback context.\n"
+            "  4. group_yes_pct — tie-breaker only.\n\n"
+            "In your reasoning, name AT LEAST ONE specific menu item from menu_with_reviews "
+            "and quote 3-8 words from a real review verbatim (in quotes), explaining WHY that "
+            "dish/quote fits the group's preferences. Quote ONLY text that appears in the "
+            "data — do not paraphrase or invent.\n\n"
+            'Respond ONLY with JSON: {"pick": "<exact restaurant name>", '
+            '"reasoning": "<3-4 sentences. Mention at least one menu item by name and one short verbatim review quote.>"}'
         )
 
 

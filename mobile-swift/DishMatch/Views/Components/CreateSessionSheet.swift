@@ -203,6 +203,38 @@ struct CreateSessionSheet: View {
                 .padding(.horizontal, 24)
                 .padding(.bottom, 12)
 
+                // Demo preset — one-tap Houston for reliable seeded restaurants.
+                Button {
+                    let houston = CLLocationCoordinate2D(latitude: 29.7589, longitude: -95.3677)
+                    pinnedCoordinate = houston
+                    centerOn = houston
+                    locationLabel = "Houston Downtown"
+                    searchText = ""
+                    searchFocused = false
+                } label: {
+                    HStack(spacing: 8) {
+                        Text("🌟")
+                        Text("Houston Downtown (Demo)")
+                            .font(.system(size: 13, weight: .semibold))
+                            .foregroundColor(theme.primary)
+                        Spacer()
+                        Image(systemName: "arrow.up.right")
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundColor(theme.primary)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 10)
+                    .background(theme.primary.opacity(0.08))
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(theme.primary.opacity(0.4), lineWidth: 1)
+                    )
+                }
+                .buttonStyle(.plain)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 10)
+
                 // Search bar
                 HStack(spacing: 8) {
                     Image(systemName: "magnifyingglass")

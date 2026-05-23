@@ -74,35 +74,48 @@ enum SessionRoute: Hashable {
 struct SessionNavigator: View {
     let sessionId: UUID
     let isSolo: Bool
+    /// When true, open straight into ResultsView instead of SwipeView. Used by the
+    /// History tab when re-opening a session that already reached results/matched.
+    let openAtResults: Bool
     @ObservedObject var sessionVM: SessionViewModel
     @State private var path = NavigationPath()
     @Environment(\.dismiss) private var dismiss
 
-    init(sessionId: UUID, sessionVM: SessionViewModel, isSolo: Bool = false) {
+    init(sessionId: UUID, sessionVM: SessionViewModel, isSolo: Bool = false, openAtResults: Bool = false) {
         self.sessionId = sessionId
         self.sessionVM = sessionVM
         self.isSolo = isSolo
+        self.openAtResults = openAtResults
     }
 
     var body: some View {
         NavigationStack(path: $path) {
-            SwipeView(sessionId: sessionId, path: $path, onLeave: { dismiss() })
-                .environmentObject(sessionVM)
-                .id(sessionId)
-                .navigationDestination(for: SessionRoute.self) { route in
-                    switch route {
-                    case .swipe(let id):
-                        SwipeView(sessionId: id, path: $path, onLeave: { dismiss() })
-                            .environmentObject(sessionVM)
-                            .id(id)
-                    case .results(let id):
-                        // onClose must dismiss the *cover*, not pop the nav back to the
-                        // stale SwipeView (which would re-run its .task and end up
-                        // showing the NYC mock list).
-                        ResultsView(sessionId: id, path: $path, onClose: { dismiss() })
-                            .environmentObject(sessionVM)
-                    }
+            // Root: SwipeView for live sessions, ResultsView for finished ones.
+            Group {
+                if openAtResults {
+                    ResultsView(sessionId: sessionId, path: $path, onClose: { dismiss() })
+                        .environmentObject(sessionVM)
+                        .id(sessionId)
+                } else {
+                    SwipeView(sessionId: sessionId, path: $path, onLeave: { dismiss() })
+                        .environmentObject(sessionVM)
+                        .id(sessionId)
                 }
+            }
+            .navigationDestination(for: SessionRoute.self) { route in
+                switch route {
+                case .swipe(let id):
+                    SwipeView(sessionId: id, path: $path, onLeave: { dismiss() })
+                        .environmentObject(sessionVM)
+                        .id(id)
+                case .results(let id):
+                    // onClose must dismiss the *cover*, not pop the nav back to the
+                    // stale SwipeView (which would re-run its .task and end up
+                    // showing the NYC mock list).
+                    ResultsView(sessionId: id, path: $path, onClose: { dismiss() })
+                        .environmentObject(sessionVM)
+                }
+            }
         }
     }
 }

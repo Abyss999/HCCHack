@@ -79,7 +79,16 @@ struct HistoryView: View {
         .task { await vm.load() }
         .refreshable { await vm.load() }
         .fullScreenCover(item: $activeSession) { session in
-            SessionNavigator(sessionId: session.id, sessionVM: sessionVM, isSolo: session.soloMode == true)
+            // Finished sessions (results/matched) jump straight to the Results screen
+            // instead of re-entering the swipe stack, which would re-run .task and
+            // refetch restaurants for a session that's already over.
+            let openAtResults = session.status == .results || session.status == .matched
+            SessionNavigator(
+                sessionId: session.id,
+                sessionVM: sessionVM,
+                isSolo: session.soloMode == true,
+                openAtResults: openAtResults
+            )
                 .environmentObject(authStore)
                 .environmentObject(themeStore)
         }

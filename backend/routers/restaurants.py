@@ -1,5 +1,4 @@
 import asyncio
-from math import asin, cos, radians, sin, sqrt
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
@@ -12,6 +11,16 @@ from schemas.restaurant import RestaurantOut
 from security import limiter
 from services.places_service import GroupFilter, PRICE_LEVEL_BY_TIER, PlacesService, get_places_service
 from services.session_service import SessionService, get_session_service
+
+# Houston metro bounding box — sessions inside this box serve the curated seed
+# instead of hitting Google Places. Tight enough to keep Dallas / Austin / San
+# Antonio out, loose enough to cover Galleria, Heights, Montrose, Midtown, EaDo,
+# Museum District, Bellaire, Sugar Land.
+_HOUSTON_BBOX = (29.55, -95.65, 29.95, -95.10)  # (min_lat, min_lng, max_lat, max_lng)
+
+
+def _in_houston(lat: float, lng: float) -> bool:
+    return _HOUSTON_BBOX[0] <= lat <= _HOUSTON_BBOX[2] and _HOUSTON_BBOX[1] <= lng <= _HOUSTON_BBOX[3]
 
 router = APIRouter(prefix="/restaurants", tags=["restaurants"])
 _settings = get_settings()
@@ -49,12 +58,24 @@ async def _ensure_mocks_persisted() -> None:
             ).insert()
 
 
-def _haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
-    R = 6371
-    dlat = radians(lat2 - lat1)
-    dlng = radians(lng2 - lng1)
-    a = sin(dlat / 2) ** 2 + cos(radians(lat1)) * cos(radians(lat2)) * sin(dlng / 2) ** 2
-    return 2 * R * asin(sqrt(a))
+def _apply_overrides_to_seed(
+    rows: list[Restaurant], session
+) -> list[Restaurant]:
+    """Filter seeded restaurants by cuisine/budget overrides on the session.
+    Keeps rows with unknown price_tier so the stack never empties."""
+    cuisines = [c.lower() for c in (session.cuisine_overrides or [])]
+    budgets = set(session.budget_overrides or [])
+
+    out = []
+    for r in rows:
+        if cuisines:
+            tags = {t.lower() for t in r.cuisine_tags}
+            if not any(c in tags or any(c in t for t in tags) for c in cuisines):
+                continue
+        if budgets and r.price_tier is not None and r.price_tier not in budgets:
+            continue
+        out.append(r)
+    return out
 
 
 @router.get("", response_model=list[RestaurantOut])
@@ -82,16 +103,19 @@ async def list_restaurants(
             detail="Session has no location set",
         )
 
-    # Demo path: if seeded restaurants exist near the session location, return those
-    # and skip the Google Places API call entirely.
-    radius_km = session.radius_km_override or 10.0
-    seeded = await Restaurant.find_all().to_list()
-    nearby = [
-        r for r in seeded
-        if _haversine_km(session.location_lat, session.location_lng, r.lat, r.lng) <= radius_km
-    ]
-    if nearby:
-        return [RestaurantOut(**r.model_dump()) for r in nearby]
+    # Demo path: when the session is inside the Houston bounding box, serve the
+    # curated seed (is_seed=True) and skip Google Places entirely. Scoped to seed
+    # rows so it cannot accidentally serve Google-upserted restaurants from another
+    # session in a nearby city.
+    if _in_houston(session.location_lat, session.location_lng):
+        seeded = await Restaurant.find(Restaurant.is_seed == True).to_list()  # noqa: E712
+        filtered = _apply_overrides_to_seed(seeded, session)
+        if filtered:
+            return [RestaurantOut(**r.model_dump()) for r in filtered]
+        # If overrides filtered everything out, fall back to the full seed rather
+        # than going to Google — the user picked Houston, they want Houston.
+        if seeded:
+            return [RestaurantOut(**r.model_dump()) for r in seeded]
 
     # Override branch fires when ANY override is set (cuisine, radius, or budgets).
     has_overrides = (

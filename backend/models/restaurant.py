@@ -20,6 +20,11 @@ class Restaurant(Document):
     menu: list[str] = Field(default_factory=list)
     vibe_blurb: str | None = None
     reviews: list[str] = Field(default_factory=list)  # cached Google Places reviews
+    # menu_reviews entries: {"item": str, "quotes": [{"text": str, "source": str}, ...]}
+    menu_reviews: list[dict] = Field(default_factory=list)
+    # overall_vibe_quotes entries: {"text": str, "source": str}
+    overall_vibe_quotes: list[dict] = Field(default_factory=list)
+    is_seed: bool = False  # True for hand-curated demo rows; keeps the demo path isolated from Google upserts
 
     class Settings:
         name = "restaurants"

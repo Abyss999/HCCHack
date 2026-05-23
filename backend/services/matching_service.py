@@ -28,9 +28,13 @@ class MatchingService:
         member_count = len(session.members)
         if member_count == 0:
             return None
-        # Non-solo sessions need at least 2 members for an "instant match" to be meaningful —
-        # otherwise the host gets a match on their very first yes while waiting for friends.
-        if not session.solo_mode and member_count < 2:
+        # Solo sessions never "instant match" — one person agreeing with themselves
+        # isn't a match. They swipe until the ceiling, then see top-3 + vibe-pick.
+        if session.solo_mode:
+            return None
+        # Non-solo sessions need at least 2 members; otherwise the host instant-matches
+        # on their first yes while still waiting for friends to join.
+        if member_count < 2:
             return None
         pipeline = [
             {"$match": {"session_id": session.id, "direction": "yes"}},

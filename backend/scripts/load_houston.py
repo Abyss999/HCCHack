@@ -75,6 +75,9 @@ async def main() -> None:
                     menu=row.get("menu", []),
                     vibe_blurb=row.get("vibe_blurb"),
                     reviews=[],
+                    menu_reviews=row.get("menu_reviews", []),
+                    overall_vibe_quotes=row.get("overall_vibe_quotes", []),
+                    is_seed=True,
                 )
                 await doc.insert()
                 inserted += 1
@@ -89,6 +92,9 @@ async def main() -> None:
                 existing.lng = row["lng"]
                 existing.menu = row.get("menu", [])
                 existing.vibe_blurb = row.get("vibe_blurb")
+                existing.menu_reviews = row.get("menu_reviews", [])
+                existing.overall_vibe_quotes = row.get("overall_vibe_quotes", [])
+                existing.is_seed = True
                 if not existing.photo_url:
                     existing.photo_url = photo_url(http, row["google_place_id"])
                 await existing.save()

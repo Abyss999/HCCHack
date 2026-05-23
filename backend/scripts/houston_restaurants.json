@@ -19,7 +19,80 @@
       "Chapulines (toasted grasshoppers, guacamole)",
       "Tamales de Rajas (roasted pepper & cheese)"
     ],
-    "vibe_blurb": "Dramatic Oaxacan sanctuary inside the Marriott Marquis with bold murals, mezcal flights, and a vibrant antojito bar."
+    "vibe_blurb": "Dramatic Oaxacan sanctuary inside the Marriott Marquis with bold murals, mezcal flights, and a vibrant antojito bar.",
+    "menu_reviews": [
+      {
+        "item": "Tlayuda de res (grilled steak, mole negro, quesillo on crispy tortilla)",
+        "quotes": [
+          {
+            "text": "The meat tlayuda was fresh and on spot!",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "If you're looking to explore deeper regional Mexican cuisine, this is a must-visit in Houston. I'd go back to try more. Tlayuda de res with a glass of malbec.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Barbacoa de res de Zaachila",
+        "quotes": [
+          {
+            "text": "I had the Barbacoa de Res de Zaachila (grilled rolled tenderloin, hoja santa, guajillo puya and costeño pepper adobo, potato, carrots, masa dumplings). The beef was tender and flavourful.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "I was brave and ordered the Barbacoa De Res De Zaac and let me tell you it was beautifully presented and was far more than I expected. The way the meat was prepared was tasty and tender.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Mole negro con pato",
+        "quotes": [
+          {
+            "text": "We opted for the mole tasting menus with the pairings and it was absolutely fabulous… duck, and a chocolate cake that had their ant mole.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "The sauce was one of the best mole sauces I've ever had. The chef stopped by our table and said it's his Abuela's recipe passed down.",
+            "source": "Facebook"
+          }
+        ]
+      },
+      {
+        "item": "Chapulines (toasted grasshoppers, guacamole)",
+        "quotes": [
+          {
+            "text": "The xoxocotlan had crickets on them. Feel how you will about that. Otherwise the presentation was nice. The sauces were good.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "Food is definitely different if you like southern Oaxaca style food. Or adventurous to try insects.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Tamales de rajas (roasted pepper & cheese)",
+        "quotes": [
+          {
+            "text": "My husband had a chicken tamal in a mole negro sauce… very flavorful and perfectly cooked.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Dramatic, colorful, and elevated — this is not your typical Mexican restaurant, it's a full cultural experience.",
+        "source": "The Infatuation"
+      },
+      {
+        "text": "Hands down one of the best restaurants in Houston. It's certainly not cheap, but it is absolutely worth every penny.",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "Pappas Bros. Steakhouse",
@@ -41,7 +114,76 @@
       "Spanish Octopus Carpaccio",
       "Bananas Foster Bread Pudding"
     ],
-    "vibe_blurb": "Opulent flagship steakhouse with white tablecloths, a world-class wine cellar, and flawless prime beef in the heart of downtown."
+    "vibe_blurb": "Opulent flagship steakhouse with white tablecloths, a world-class wine cellar, and flawless prime beef in the heart of downtown.",
+    "menu_reviews": [
+      {
+        "item": "USDA prime dry-aged bone-in ribeye",
+        "quotes": [
+          {
+            "text": "The dry-aging of the steak is especially notable as it produced a highly complex and variable flavour profile… a slightly smokey and earthly undertone supporting the beef.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "My Prime NY Strip… perfectly cooked and amazing quality.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Jumbo lump crabcakes",
+        "quotes": [
+          {
+            "text": "From the crab cakes to the filet to the SALADS — all incredible.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "Crab cakes ok, not my favorite preparation… I like more simple crab focused, this too fried.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Bacon-wrapped scallops",
+        "quotes": [
+          {
+            "text": "I had dinner with a group of 8. We started with crab cakes, lobster deviled eggs, and scallops (my favorite).",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Spanish octopus carpaccio",
+        "quotes": [
+          {
+            "text": "The steaks were cooked to perfection and the mashed potatoes were delicious. Nothing was amiss.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Bananas foster bread pudding",
+        "quotes": [
+          {
+            "text": "Desserts are insanely great. They bring a cart by the table to tempt you… especially the Cheesecake — it's about 6 inches high, amazing graham cracker crust.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "The chocolate midnight cake for dessert was fantastic. The strawberries provided a great tartness that cut through the decadency.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "This well known spot is a polished classic steakhouse… high end but comfortable. The wine list is one of the best in town.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "Pappas offer the best dry aged steaks in town. Quality of food, attentive service and personalised approach makes this my favourite place to visit.",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "Toro Toro",
@@ -58,13 +200,56 @@
     "price_tier": "$$$",
     "rating": 4.3,
     "menu": [
-      "Toro Toro Churrasco (tableside-carved rod\u00edzio steak)",
+      "Toro Toro Churrasco (tableside-carved rodízio steak)",
       "Redfish Ceviche",
       "Crab Toast with guacamole",
       "Peruvian Grilled Chicken with achiote",
       "Salmon with kimchi marinade and dashi-braised bok choy"
     ],
-    "vibe_blurb": "Glitzy Pan-Latin steakhouse on the third floor of the Four Seasons Hotel with tableside carving and a lively cocktail bar."
+    "vibe_blurb": "Glitzy Pan-Latin steakhouse on the third floor of the Four Seasons Hotel with tableside carving and a lively cocktail bar.",
+    "menu_reviews": [
+      {
+        "item": "Toro toro churrasco (tableside-carved rodízio steak)",
+        "quotes": [
+          {
+            "text": "This place is excellent. The meat was excellent. I highly recommend sharing the churrasco, ceviche, carrots and brussel sprouts.",
+            "source": "Yelp"
+          },
+          {
+            "text": "Toro Toro, the pan-Latin steakhouse placed inside the hotel, elevates the tableside carving, Brazilian churrasco experience.",
+            "source": "Houstonia"
+          }
+        ]
+      },
+      {
+        "item": "Redfish ceviche",
+        "quotes": [
+          {
+            "text": "Service was excellent, but food was average. We ordered short rib tacos and Amarillo ceviche to start. The ceviche was okay.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Crab toast with guacamole",
+        "quotes": [
+          {
+            "text": "We stopped into Toro Toro inside the Four Seasons Houston and had such a great experience. The servers were super friendly and took the time to walk us through the menu.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Glitzy Pan-Latin steakhouse on the third floor of the Four Seasons Hotel with tableside carving and a lively cocktail bar.",
+        "source": "Houstonia"
+      },
+      {
+        "text": "Service was excellent… great spot for a business meal or a special occasion in a polished hotel setting.",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "Kulture",
@@ -86,7 +271,50 @@
       "Southern Carbonara",
       "Oyster Mushroom Plate"
     ],
-    "vibe_blurb": "Urban comfort kitchen celebrating Black culinary heritage with live music on weekends and a vibrant downtown crowd."
+    "vibe_blurb": "Urban comfort kitchen celebrating Black culinary heritage with live music on weekends and a vibrant downtown crowd.",
+    "menu_reviews": [
+      {
+        "item": "Braised oxtail with rice and peas",
+        "quotes": [
+          {
+            "text": "Ordered oxtails, Gouda Mac and cheese, fried chicken whipped sweet potatoes, collards, with a biscuit that came with the meal. 5/5.",
+            "source": "Yelp"
+          },
+          {
+            "text": "Ordered oxtails, Gouda Mac and cheese, fried chicken whipped sweet potatoes, collards, with a biscuit that came with the meal. Collard had perfectly balanced flavor.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Whole fried snapper",
+        "quotes": [
+          {
+            "text": "Kulture is a must try's spot if you enjoy great food, terrific service and a quieting ambience.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Creole fried chicken",
+        "quotes": [
+          {
+            "text": "Ordered oxtails, Gouda Mac and cheese, fried chicken whipped sweet potatoes, collards, with a biscuit that came with the meal. 5/5.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Urban comfort kitchen celebrating Black culinary heritage with live music on weekends and a vibrant downtown crowd.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Live music offered every Friday & Saturday night — the energy in this room is unlike any other downtown spot.",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "Grotto Downtown",
@@ -108,7 +336,50 @@
       "Pollo Francese",
       "Neapolitan Thin Crust Margherita Pizza"
     ],
-    "vibe_blurb": "Warm Italian trattoria near the George R. Brown Convention Center with a chic patio and a generous happy hour."
+    "vibe_blurb": "Warm Italian trattoria near the George R. Brown Convention Center with a chic patio and a generous happy hour.",
+    "menu_reviews": [
+      {
+        "item": "Veal kickerillo",
+        "quotes": [
+          {
+            "text": "I have been coming here for over twenty years and I have enjoyed both the food and the amazing staff.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Neapolitan thin crust margherita pizza",
+        "quotes": [
+          {
+            "text": "I am a bit of a pizza snob, and while it was good, I've had better.",
+            "source": "Yelp"
+          },
+          {
+            "text": "We got a pizza and the shrimp pasta and both were delicious. The vibe is super cute and the staff was super friendly.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Snapper Siciliano",
+        "quotes": [
+          {
+            "text": "The ambiance was nice. Outdoor and indoor seating and private dining for parties with a nice bar.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Warm Italian trattoria near the George R. Brown Convention Center with a chic patio and a generous happy hour.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Good Italian food in a relaxed setting — solid choice before a downtown show or convention event.",
+        "source": "Reddit"
+      }
+    ]
   },
   {
     "name": "Treebeards",
@@ -127,10 +398,75 @@
       "Red Beans & Rice with smoked link sausage",
       "Chicken & Sausage Gumbo",
       "Jambalaya",
-      "Chicken \u00c9touff\u00e9e",
+      "Chicken Étouffée",
       "Bread Pudding with bourbon sauce"
     ],
-    "vibe_blurb": "Beloved downtown lunch counter serving slow-cooked Southern Creole food since 1978; weekdays only, cash welcomed."
+    "vibe_blurb": "Beloved downtown lunch counter serving slow-cooked Southern Creole food since 1978; weekdays only, cash welcomed.",
+    "menu_reviews": [
+      {
+        "item": "Red beans & rice with smoked link sausage",
+        "quotes": [
+          {
+            "text": "Red beans and rice are great. Only complaint is that the shrimp etouffee has way too much celery in it.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "I tried a small gumbo and small red beans & rice for $8.50. I recommend this for a quick lunch.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Chicken & sausage gumbo",
+        "quotes": [
+          {
+            "text": "Gumbo, etouffee, jambalaya, and red beans & rice available. Great food and gathering spot!",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "There's always a long line for the famous red beans, rice, gumbo, and jambalaya at this Houston institution!",
+            "source": "Facebook/Localish"
+          }
+        ]
+      },
+      {
+        "item": "Chicken étouffée",
+        "quotes": [
+          {
+            "text": "Menu samples from Cajun and Creole — my favorite was shrimp etouffee!",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Jambalaya",
+        "quotes": [
+          {
+            "text": "Food was hot, there was lots of it and it was excellent value for money.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Bread pudding with bourbon sauce",
+        "quotes": [
+          {
+            "text": "Dessert! You must not leave before trying their butter cake.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "It is often crowded, but service is fast. This cafeteria-style restaurant is a popular spot for businessmen and women in the downtown area.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "Unique partnership with Treebeards cooking and serving out of Christ Church Cathedral in downtown Houston — great quick, cafeteria-style dine-in or take out.",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "La Carafe",
@@ -152,7 +488,41 @@
       "Cheese plate",
       "Charcuterie board"
     ],
-    "vibe_blurb": "Houston's oldest bar in an 1860 building \u2014 candlelit, cash-only, no music, allegedly haunted, and utterly irreplaceable."
+    "vibe_blurb": "Houston's oldest bar in an 1860 building — candlelit, cash-only, no music, allegedly haunted, and utterly irreplaceable.",
+    "menu_reviews": [
+      {
+        "item": "House red wine by the glass",
+        "quotes": [
+          {
+            "text": "Atmospheric, great jukebox, and a rarity in Houston — a historic building with real character.",
+            "source": "Yelp"
+          },
+          {
+            "text": "Wine on tap, the customer service is top notch. You truly get to choose your own adventure.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "House white wine by the glass",
+        "quotes": [
+          {
+            "text": "Fantastic little wine bar — supposedly haunted — in the oldest building in Houston. Great atmosphere, minimal lighting other than candles, friendly bar staff.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Fantastic little wine bar — supposedly haunted — in the oldest building in Houston. Great atmosphere, minimal lighting other than candles, friendly bar staff.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "Houston's oldest bar in an 1860 building — candlelit, cash-only, no music, allegedly haunted, and utterly irreplaceable.",
+        "source": "National Trust for Historic Preservation"
+      }
+    ]
   },
   {
     "name": "Huynh Restaurant",
@@ -169,12 +539,68 @@
     "rating": 4.7,
     "menu": [
       "Pho Tai (rare sliced beef noodle soup)",
-      "B\u00fan B\u00f2 Hu\u1ebf (spicy Hue lemongrass noodle soup)",
+      "Bún Bò Huế (spicy Hue lemongrass noodle soup)",
       "Com Bo Luc Lac (shaking beef tenderloin on rice)",
-      "B\u00e1nh M\u00ec Th\u1ecbt (pork banh mi sandwich)",
-      "Ch\u1ea3 Gi\u00f2 (fried spring rolls with nuoc cham)"
+      "Bánh Mì Thịt (pork banh mi sandwich)",
+      "Chả Giò (fried spring rolls with nuoc cham)"
     ],
-    "vibe_blurb": "Family-run Vietnamese gem just east of downtown \u2014 BYOB-friendly, no-frills d\u00e9cor, and some of Houston's most authentic pho."
+    "vibe_blurb": "Family-run Vietnamese gem just east of downtown — BYOB-friendly, no-frills décor, and some of Houston's most authentic pho.",
+    "menu_reviews": [
+      {
+        "item": "Pho tai (rare sliced beef noodle soup)",
+        "quotes": [
+          {
+            "text": "We had a fabulous Pho. The menu is varied and offers many choices.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "Family of 3 enjoyed the beef pho, rice noodle rolls & pork chop with rice. All of them are very tasteful. Reasonable price.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Bún bò huế (spicy Hue lemongrass noodle soup)",
+        "quotes": [
+          {
+            "text": "Pho, bun bo Hue, won ton soup, spring rolls, duck salad, etc., etc... it's all here. Packed during peak periods.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Com bo luc lac (shaking beef tenderloin on rice)",
+        "quotes": [
+          {
+            "text": "Try F1 BÒ LÚC LẰC (stir-fried beef tenderloin, peppers & onion) if you're not vegetarian. That dish is superb!",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "The steak slices with vegetables are fantastic. And BYO with negligible corkage fee keeps the tab a terrific bargain.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Chả giò (fried spring rolls with nuoc cham)",
+        "quotes": [
+          {
+            "text": "We ordered crispy Vietnamese rolls and spring rolls with peanut sauce as our appetizers. They were probably the best I've had, plus they provided the right amount of sauce and vegetables.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Great family-owned/run place in cool location near convention center/downtown. Packed during peak periods.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "If you are in downtown I would recommend Huynh Restaurant. Best bang for your buck.",
+        "source": "Reddit"
+      }
+    ]
   },
   {
     "name": "Irma's Original",
@@ -196,7 +622,54 @@
       "Caldo de Res",
       "Irma's Famous House Lemonade"
     ],
-    "vibe_blurb": "No-printed-menu Mexican institution with unbeatable lemonade and decades of old-Houston warmth near the courthouse."
+    "vibe_blurb": "No-printed-menu Mexican institution with unbeatable lemonade and decades of old-Houston warmth near the courthouse.",
+    "menu_reviews": [
+      {
+        "item": "Enchiladas de pollo with green sauce",
+        "quotes": [
+          {
+            "text": "The food is incredible! Try the shrimp appetizer, tamales, mahi-mahi, enchiladas, and any dessert!",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "The green chicken enchiladas were good 👍 and the seared tuna was very flavorful and perfectly cooked.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Tamales de puerco",
+        "quotes": [
+          {
+            "text": "You won't get a menu, just go with the experience!! The food is incredible! Try the tamales.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Irma's famous house lemonade",
+        "quotes": [
+          {
+            "text": "The strawberry lemonade is divine though, and you get free refills on it, which is so unusual and so generous.",
+            "source": "Yelp"
+          },
+          {
+            "text": "If you go to an Astros game, you have to eat at Irma's! That lemonade!!!!",
+            "source": "Facebook"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "It's not very often you walk into an establishment these days and feel like you're eating a meal in someone's home. Irma's Original was absolutely fantastic.",
+        "source": "Yelp"
+      },
+      {
+        "text": "No-printed-menu Mexican institution with unbeatable lemonade and decades of old-Houston warmth near the courthouse.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Irma's Southwest",
@@ -218,7 +691,41 @@
       "Queso Flameado",
       "Tres Leches Cake"
     ],
-    "vibe_blurb": "Lively Tex-Mex spot inside the Catalyst building, beloved by downtown workers and Minute Maid Park gameday crowds."
+    "vibe_blurb": "Lively Tex-Mex spot inside the Catalyst building, beloved by downtown workers and Minute Maid Park gameday crowds.",
+    "menu_reviews": [
+      {
+        "item": "Chile con queso con picadillo",
+        "quotes": [
+          {
+            "text": "Really nice atmosphere and friendly staff. They were a bit busy because the WBC was in town.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Chicken fajitas",
+        "quotes": [
+          {
+            "text": "Food was mediocre. Drinks were ok.",
+            "source": "OpenTable"
+          },
+          {
+            "text": "Lively Tex-Mex spot inside the Catalyst building, beloved by downtown workers and Minute Maid Park gameday crowds.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "We'll be open all day during weekday Astros games — this place turns into a pre-game party headquarters on game days.",
+        "source": "Irma's Southwest (official)"
+      },
+      {
+        "text": "Walked in, was greeted nicely, and taken to our table immediately. Really nice atmosphere and friendly staff.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Brennan's of Houston",
@@ -236,12 +743,77 @@
     "rating": 4.6,
     "menu": [
       "Turtle Soup au Sherry",
-      "Bananas Foster (flamb\u00e9ed tableside)",
+      "Bananas Foster (flambéed tableside)",
       "Shrimp & Andouille Grits",
       "Pan-Roasted Gulf Snapper with crab butter",
       "Eggs Hussarde"
     ],
-    "vibe_blurb": "Houston's grande dame of Creole cuisine since 1967 \u2014 chandeliered rooms, tuxedoed servers, and legendary Sunday jazz brunch."
+    "vibe_blurb": "Houston's grande dame of Creole cuisine since 1967 — chandeliered rooms, tuxedoed servers, and legendary Sunday jazz brunch.",
+    "menu_reviews": [
+      {
+        "item": "Turtle soup au sherry",
+        "quotes": [
+          {
+            "text": "The snapping turtle soup was unique and had a deep creole flavor. I couldn't tell the difference between chicken and the snapping turtle but it was fun to try.",
+            "source": "Yelp"
+          },
+          {
+            "text": "Our brunch selections included Snapping Turtle Soup… all were excellent.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Bananas foster (flambéed tableside)",
+        "quotes": [
+          {
+            "text": "The table-side prepared banana foster — just divine!",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "My Bananas Foster for dessert was delicious and they cook it in front of your table which I thought was pretty cool!",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Shrimp & andouille grits",
+        "quotes": [
+          {
+            "text": "For my main course I went all in with the Shrimp and Grits and boy, they did not disappoint. Cooked to perfection like we've had in Charleston and Atlanta.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Pan-roasted gulf snapper with crab butter",
+        "quotes": [
+          {
+            "text": "As was the Shrimp and Grits entree. Very well prepared and presented. Excellent desserts, including the perennial favorite Bananas Foster.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Eggs Hussarde",
+        "quotes": [
+          {
+            "text": "Entrees included Eggs St. Charles, Eggs Benedict, and the Roasted Chicken Cobb Salad — all part of a superb brunch experience.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Houston's grande dame of Creole cuisine since 1967 — chandeliered rooms, tuxedoed servers, and legendary Sunday jazz brunch.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "The table-made banana's foster is so yummy and a must. The turtle soup seems a little intimidating but is very yummy.",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "Josephine's Gulf Coast Tradition",
@@ -263,7 +835,46 @@
       "Shrimp & Grits with tasso gravy",
       "Banana Pudding with Nilla wafers"
     ],
-    "vibe_blurb": "Michelin-recognized Gulf Coast seafood house with porch seating, superb po'boys, and a breezy neighborhood atmosphere near Midtown."
+    "vibe_blurb": "Michelin-recognized Gulf Coast seafood house with porch seating, superb po'boys, and a breezy neighborhood atmosphere near Midtown.",
+    "menu_reviews": [
+      {
+        "item": "Fried shrimp po'boy with fries",
+        "quotes": [
+          {
+            "text": "Enjoyed two days in row the delicious Louisiana shrimp po-boy. Proper NOLA French bread, big snappy texas gulf shrimp, dressed proper..... $19 and worth it.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Fried oyster po'boy",
+        "quotes": [
+          {
+            "text": "Josephine's Gulf Coast Tradition — superb po'boys and a breezy neighborhood atmosphere near Midtown.",
+            "source": "Houstonia"
+          }
+        ]
+      },
+      {
+        "item": "Shrimp & grits with tasso gravy",
+        "quotes": [
+          {
+            "text": "Michelin-recognized Gulf Coast seafood house with porch seating, superb po'boys, and a breezy neighborhood atmosphere.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "A little bit classy, and a little bit trashy — exactly what Gulf Coast seafood should feel like.",
+        "source": "Josephine's (official website)"
+      },
+      {
+        "text": "Michelin-recognized Gulf Coast seafood house with porch seating, superb po'boys, and a breezy neighborhood atmosphere near Midtown.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Phoenicia Specialty Foods",
@@ -286,7 +897,50 @@
       "Cheese Borek (phyllo pastry)",
       "Baklava"
     ],
-    "vibe_blurb": "Award-winning international food market across from Discovery Green \u2014 browse global groceries then grab a fresh Middle Eastern deli bite."
+    "vibe_blurb": "Award-winning international food market across from Discovery Green — browse global groceries then grab a fresh Middle Eastern deli bite.",
+    "menu_reviews": [
+      {
+        "item": "Housemade hummus with warm pita",
+        "quotes": [
+          {
+            "text": "Extremely fresh easy to order Mediterranean restaurant. I love how big the dining room is and you basically pull up to the front counter and you choose what you want.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Chicken shawarma wrap",
+        "quotes": [
+          {
+            "text": "This place is awesome. Love their food. Always flavorful.",
+            "source": "Uber Eats"
+          },
+          {
+            "text": "The meat sauce had to be my favorite bite with their pita bread. They have plenty of different items like their falafels.",
+            "source": "Instagram"
+          }
+        ]
+      },
+      {
+        "item": "Falafel plate with tabouleh",
+        "quotes": [
+          {
+            "text": "I got the falafel plate — good size portions of yellow rice and falafel drizzled with delicious tzatziki sauce. Definitely lived up to the hype!",
+            "source": "Facebook"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Award-winning international food market across from Discovery Green — browse global groceries then grab a fresh Middle Eastern deli bite.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Delicious food at Phoenicia downtown — lived up to the hype!",
+        "source": "Facebook"
+      }
+    ]
   },
   {
     "name": "Nancy's Hustle",
@@ -308,7 +962,54 @@
       "Wood-Grilled Half Chicken",
       "Pan-Roasted Rockfish"
     ],
-    "vibe_blurb": "Michelin-recognized EaDo bistro blending diner nostalgia with fine technique \u2014 the caviar butter pancakes and smash burger are legendary."
+    "vibe_blurb": "Michelin-recognized EaDo bistro blending diner nostalgia with fine technique — the caviar butter pancakes and smash burger are legendary.",
+    "menu_reviews": [
+      {
+        "item": "Nancy cakes with sturgeon caviar butter",
+        "quotes": [
+          {
+            "text": "The Nancy cakes and burger are two of their more popular dishes, and I definitely understand why! The pancakes were so fluffy and the butter with fish eggs made for a unique taste.",
+            "source": "Yelp"
+          },
+          {
+            "text": "The nancy cakes were pretty good too; it's their take on blinis with caviar.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Smash burger",
+        "quotes": [
+          {
+            "text": "Nancy's Hustle was recently named Yelp's choice as Texas' best cheeseburger.",
+            "source": "Houston Chronicle"
+          },
+          {
+            "text": "Everything was delicious!! The nancy cakes and burger are two of their more popular dishes.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Duck ragu tagliatelle",
+        "quotes": [
+          {
+            "text": "It was so flavourful and tender with a generous portion of meat.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Michelin-recognized EaDo bistro blending diner nostalgia with fine technique — the caviar butter pancakes and smash burger are legendary.",
+        "source": "Houston Chronicle"
+      },
+      {
+        "text": "The Nancy cakes are a must try, I wasn't the biggest fan but the butter/fish egg garnish brings a unique taste. The croquettes were really good.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Leaf & Grain",
@@ -331,7 +1032,24 @@
       "Cage-Free Rotisserie Chicken Bowl",
       "Seasonal Vegan Bowl"
     ],
-    "vibe_blurb": "Bright fast-casual grain bowl and salad spot in the Houston Center towers \u2014 the go-to healthy weekday lunch for downtown office workers."
+    "vibe_blurb": "Bright fast-casual grain bowl and salad spot in the Houston Center towers — the go-to healthy weekday lunch for downtown office workers.",
+    "menu_reviews": [
+      {
+        "item": "Southwest grain bowl (farro, black beans, roasted corn, avocado)",
+        "quotes": [
+          {
+            "text": "Bright fast-casual grain bowl and salad spot in the Houston Center towers — the go-to healthy weekday lunch for downtown office workers.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Quick, fresh, and reliable — a lifesaver when you need something healthy in the middle of a packed downtown workday.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Pho Saigon",
@@ -348,15 +1066,49 @@
     "rating": 4.4,
     "menu": [
       "Pho Dac Biet (house special beef pho)",
-      "B\u00fan B\u00f2 Hu\u1ebf (spicy Hue-style noodle soup)",
+      "Bún Bò Huế (spicy Hue-style noodle soup)",
       "Com Tam with grilled pork",
       "Crispy Spring Rolls",
-      "Vietnamese Iced Coffee (c\u00e0 ph\u00ea s\u1eefa \u0111\u00e1)"
+      "Vietnamese Iced Coffee (cà phê sữa đá)"
     ],
-    "vibe_blurb": "No-frills Midtown pho institution voted Houston's best Vietnamese \u2014 giant aromatic bowls and a loyal following since the 1990s."
+    "vibe_blurb": "No-frills Midtown pho institution voted Houston's best Vietnamese — giant aromatic bowls and a loyal following since the 1990s.",
+    "menu_reviews": [
+      {
+        "item": "Pho dac biet (house special beef pho)",
+        "quotes": [
+          {
+            "text": "My soup was good, but I have to say it's not the best one I've had — it could do a little bit more spice, especially on the broth, but overall it's a good dish.",
+            "source": "Yelp"
+          },
+          {
+            "text": "Huynh has comparably good food, but at a higher price. Pho Saigon is right there on Milam.",
+            "source": "Reddit"
+          }
+        ]
+      },
+      {
+        "item": "Vietnamese iced coffee (cà phê sữa đá)",
+        "quotes": [
+          {
+            "text": "Everything is fresh every time and super tasty.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "No-frills Midtown pho institution — giant aromatic bowls and a loyal following since the 1990s.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Good pho spot on Milam — fast service, no fuss, solid value.",
+        "source": "Reddit"
+      }
+    ]
   },
   {
-    "name": "L\u00faa Viet Kitchen",
+    "name": "Lúa Viet Kitchen",
     "google_place_id": "ChIJOWjym5zAQIYRwaEzkGgYEe0",
     "address": "1540 W Alabama St UNIT 300, Houston, TX 77006, United States",
     "lat": 29.7388755,
@@ -369,13 +1121,43 @@
     "price_tier": "$$",
     "rating": 4.5,
     "menu": [
-      "Signature Pho B\u00f2 (slow-simmered bone broth, rare sliced beef)",
-      "B\u00e1nh M\u00ec \u0110\u1eb7c Bi\u1ec7t (house special banh mi)",
-      "C\u01a1m T\u1ea5m B\u00ec Ch\u1ea3 (broken rice, shredded pork, egg cake)",
-      "B\u00fan Th\u1ecbt N\u01b0\u1edbng (grilled pork vermicelli bowl)",
-      "Ch\u00e8 Ba M\u00e0u (three-color layered dessert drink)"
+      "Signature Pho Bò (slow-simmered bone broth, rare sliced beef)",
+      "Bánh Mì Đặc Biệt (house special banh mi)",
+      "Cơm Tấm Bì Chả (broken rice, shredded pork, egg cake)",
+      "Bún Thịt Nướng (grilled pork vermicelli bowl)",
+      "Chè Ba Màu (three-color layered dessert drink)"
     ],
-    "vibe_blurb": "Modern Vietnamese caf\u00e9 in Montrose with sleek d\u00e9cor and a health-forward take on pho, banh mi, and rice plates."
+    "vibe_blurb": "Modern Vietnamese café in Montrose with sleek décor and a health-forward take on pho, banh mi, and rice plates.",
+    "menu_reviews": [
+      {
+        "item": "Signature pho bò (slow-simmered bone broth, rare sliced beef)",
+        "quotes": [
+          {
+            "text": "Modern Vietnamese café with sleek décor and a health-forward take on pho, banh mi, and rice plates.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Bánh mì đặc biệt (house special banh mi)",
+        "quotes": [
+          {
+            "text": "Airy Vietnamese café with minimalist décor, consistently fresh pho, and a loyal neighborhood lunch crowd.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Modern Vietnamese café with sleek décor and health-forward dishes — a good lunch option for the Montrose crowd.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Consistently fresh and well-priced — the kind of spot you come back to every week without thinking twice.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Hugo's",
@@ -397,7 +1179,50 @@
       "Enchiladas Suizas",
       "Tableside Guacamole"
     ],
-    "vibe_blurb": "Award-winning regional Mexican in Montrose with a lush tropical courtyard, elaborate Sunday brunch buffet, and James Beard pedigree."
+    "vibe_blurb": "Award-winning regional Mexican in Montrose with a lush tropical courtyard, elaborate Sunday brunch buffet, and James Beard pedigree.",
+    "menu_reviews": [
+      {
+        "item": "Cochinita pibil (slow-roasted achiote pork)",
+        "quotes": [
+          {
+            "text": "According to my Mexican friends, this is as authentic as you can get in Houston. The food is delicious, very good quality, best mole ever.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "Hugo's is a Houston staple that always hits the spot.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Mole rojo con pollo",
+        "quotes": [
+          {
+            "text": "Everything was phenomenal but the best thing that I had was definitely the Chamorro de Borrego (lamb) — the meat was so soft, the mole on it was great.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Tableside guacamole",
+        "quotes": [
+          {
+            "text": "We made a last-minute reservation for Houston Restaurant Weeks and were glad we did — the buffet had a nice variety of savory options.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Award-winning regional Mexican in Montrose with a lush tropical courtyard, elaborate Sunday brunch buffet, and James Beard pedigree.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "According to my Mexican friends, this is as authentic as you can get in Houston.",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "POST HTX Market",
@@ -416,11 +1241,41 @@
     "menu": [
       "El Tiempo Tex-Mex Fajitas",
       "Craft Smash Burger",
-      "Birria Tacos with consomm\u00e9",
+      "Birria Tacos with consommé",
       "Tonkotsu Ramen Bowl",
       "Churro Bites with cajeta"
     ],
-    "vibe_blurb": "Enormous adaptive-reuse food hall in a historic post office with rotating chef concepts and a rooftop terrace overlooking the skyline."
+    "vibe_blurb": "Enormous adaptive-reuse food hall in a historic post office with rotating chef concepts and a rooftop terrace overlooking the skyline.",
+    "menu_reviews": [
+      {
+        "item": "Birria tacos with consommé",
+        "quotes": [
+          {
+            "text": "Enormous adaptive-reuse food hall in a historic post office with rotating chef concepts and a rooftop terrace overlooking the skyline.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Craft smash burger",
+        "quotes": [
+          {
+            "text": "Great décor, plenty of seating, and a polished feel from top to bottom.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Enormous adaptive-reuse food hall in a historic post office with rotating chef concepts and a rooftop terrace overlooking the skyline.",
+        "source": "Yelp"
+      },
+      {
+        "text": "One of the coolest spaces in Houston — grab food from any vendor and head up to the rooftop for skyline views.",
+        "source": "Reddit"
+      }
+    ]
   },
   {
     "name": "The Finn",
@@ -443,7 +1298,28 @@
       "Pizza Zquare Detroit-Style Slice",
       "Cranky Carrot Fresh-Pressed Juice"
     ],
-    "vibe_blurb": "Chef-driven food hall in a restored Art Deco building on Main Street \u2014 ideal for diverse quick casual lunches under one roof."
+    "vibe_blurb": "Chef-driven food hall in a restored Art Deco building on Main Street — ideal for diverse quick casual lunches under one roof.",
+    "menu_reviews": [
+      {
+        "item": "Proper smash burger (double patty, American cheese)",
+        "quotes": [
+          {
+            "text": "Chef-driven food hall in a restored Art Deco building on Main Street — ideal for diverse quick casual lunches under one roof.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Chef-driven food hall in a restored Art Deco building on Main Street — ideal for diverse quick casual lunches under one roof.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Cool downtown lunch spot where you can get something different every day of the week without leaving the building.",
+        "source": "Reddit"
+      }
+    ]
   },
   {
     "name": "Mai's Restaurant",
@@ -460,12 +1336,55 @@
     "rating": 4.2,
     "menu": [
       "Pho Tai (rare sliced beef clear broth)",
-      "Ch\u1ea3 Gi\u00f2 Cua (fried crab spring rolls)",
+      "Chả Giò Cua (fried crab spring rolls)",
       "Lemongrass Chicken on rice",
-      "B\u00fan Th\u1ecbt N\u01b0\u1edbng (BBQ pork vermicelli)",
+      "Bún Thịt Nướng (BBQ pork vermicelli)",
       "Com Ga Nuong (grilled chicken rice plate)"
     ],
-    "vibe_blurb": "Late-night Vietnamese mainstay open until 2 a.m. \u2014 a post-concert staple near Midtown with generous portions since 1978."
+    "vibe_blurb": "Late-night Vietnamese mainstay open until 2 a.m. — a post-concert staple near Midtown with generous portions since 1978.",
+    "menu_reviews": [
+      {
+        "item": "Pho tai (rare sliced beef clear broth)",
+        "quotes": [
+          {
+            "text": "Everything is fresh every time and super tasty. Some of the can't miss items: the fresh spring rolls with vermicelli and shrimp.",
+            "source": "Yelp"
+          },
+          {
+            "text": "I love the food here. I come here whenever I get a chance and I always try to order pho.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Chả giò cua (fried crab spring rolls)",
+        "quotes": [
+          {
+            "text": "Everything is fresh every time and super tasty. Some of the can't miss items are the spring rolls.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Lemongrass chicken on rice",
+        "quotes": [
+          {
+            "text": "Good pho, good spring rolls, good lemongrass chicken — solid all around.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Late-night Vietnamese mainstay open until 2 a.m. — a post-concert staple near Midtown with generous portions since 1978.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Mai's restaurant was the first Vietnamese restaurant in Houston, making it a pinnacle among its competitors as the gateway to introducing Vietnamese cuisine to Houston.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Ouisie's Table",
@@ -488,7 +1407,37 @@
       "Chicken Fried Steak with cream gravy",
       "Peach Cobbler with vanilla ice cream"
     ],
-    "vibe_blurb": "50-year-old Southern institution with a garden terrace and white tablecloths \u2014 a beloved River Oaks brunch and dinner destination."
+    "vibe_blurb": "50-year-old Southern institution with a garden terrace and white tablecloths — a beloved River Oaks brunch and dinner destination.",
+    "menu_reviews": [
+      {
+        "item": "Gulf shrimp & grits with tasso ham",
+        "quotes": [
+          {
+            "text": "50-year-old Southern institution with a garden terrace and white tablecloths — a beloved River Oaks brunch and dinner destination.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Gulf coast oysters on the half shell",
+        "quotes": [
+          {
+            "text": "Wonderful food, great service, and beautiful garden patio — a true Houston classic.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "50-year-old Southern institution with a garden terrace and white tablecloths — a beloved River Oaks brunch and dinner destination.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "The kind of place Houston old-timers have been bringing out-of-towners for decades — reliable, gracious, and genuinely delicious.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "The Rustic Houston",
@@ -505,13 +1454,43 @@
     "price_tier": "$$",
     "rating": 4.3,
     "menu": [
-      "Smoked Brisket Sandwich with jalape\u00f1o aioli",
+      "Smoked Brisket Sandwich with jalapeño aioli",
       "Chicken & Waffle Stack",
       "Craft Burger with Texas cheddar",
       "Shrimp Tacos with mango slaw",
       "Loaded Waffle Fries"
     ],
-    "vibe_blurb": "Sprawling outdoor venue near EaDo with a massive patio, live music nightly, and crowd-pleasing American comfort food for groups."
+    "vibe_blurb": "Sprawling outdoor venue near EaDo with a massive patio, live music nightly, and crowd-pleasing American comfort food for groups.",
+    "menu_reviews": [
+      {
+        "item": "Smoked brisket sandwich with jalapeño aioli",
+        "quotes": [
+          {
+            "text": "Sprawling outdoor venue near EaDo with a massive patio, live music nightly, and crowd-pleasing American comfort food for groups.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Craft burger with Texas cheddar",
+        "quotes": [
+          {
+            "text": "Great live music, great patio, good food — perfect for a big group that can't agree on a cuisine.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Sprawling outdoor venue near EaDo with a massive patio, live music nightly, and crowd-pleasing American comfort food for groups.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Best patio in Houston for live music on a warm evening — the food is solid comfort food, nothing more.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Uchi Houston",
@@ -533,7 +1512,63 @@
       "Wagyu Beef Tataki",
       "Foie Gras Nigiri"
     ],
-    "vibe_blurb": "James Beard Award-winning Japanese restaurant with a minimalist Montrose interior \u2014 intimate and inventive omakase for serious sushi lovers."
+    "vibe_blurb": "James Beard Award-winning Japanese restaurant with a minimalist Montrose interior — intimate and inventive omakase for serious sushi lovers.",
+    "menu_reviews": [
+      {
+        "item": "Omakase chef's seasonal tasting",
+        "quotes": [
+          {
+            "text": "We ordered the 10 course omakase and Uchi did not disappoint… the quality of the fish and ingredients was faultless. I really appreciated the traditional Japanese style blended with unique and modern seasoning.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "If you want a slow meal service the happy hour omakase for two is not for you. The 9 dishes came on top of each other… but everything was beautiful and delicious.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Machi cure (smoked yellowtail, yuzu, marcona almonds)",
+        "quotes": [
+          {
+            "text": "The unique twists on a lot of the dishes, from their pickled wasabi to different elements of crunchy/sweet/sour/etc, were perfect.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Wagyu beef tataki",
+        "quotes": [
+          {
+            "text": "My $85 Japanese hot stone wagyu was only 5 small bites which I thought did not justify the price. That being said we had a great time dining at Uchi.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "Our waiter asked us what we liked and gave us a selection of sushi, oysters, wagyu and rice based on that. Each dish made your mouth water.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Foie gras nigiri",
+        "quotes": [
+          {
+            "text": "We had great sushi and decadent foie gras… Service was impeccable and we all left having had a thoroughly wonderful evening.",
+            "source": "TripAdvisor"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Dinner at Uchi is a transformative and unique omakase-style dinner that is hard to find anywhere else.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "If you're ever in Houston, you MUST come here and let the brilliant and talented chefs design a custom, culinary masterpiece for you! 100/100 would recommend!",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "Truth BBQ",
@@ -553,9 +1588,82 @@
       "St. Louis Pork Ribs",
       "Full Beef Rib",
       "Smoked Turkey Breast",
-      "Jalape\u00f1o Cheddar Sausage"
+      "Jalapeño Cheddar Sausage"
     ],
-    "vibe_blurb": "Award-winning Texas BBQ institution with 18-hour wood-fired offset smokers \u2014 expect a line, bring patience, and leave with a meat coma."
+    "vibe_blurb": "Award-winning Texas BBQ institution with 18-hour wood-fired offset smokers — expect a line, bring patience, and leave with a meat coma.",
+    "menu_reviews": [
+      {
+        "item": "18-hour smoked brisket",
+        "quotes": [
+          {
+            "text": "The brisket was absolutely delicious, tender and juicy (could cut it with a plastic fork).",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "I went simple — moist brisket & jalapeño cheddar sausage… I could eat buckets of Truth's Brussels sprouts, brisket, & sausage.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "St. Louis pork ribs",
+        "quotes": [
+          {
+            "text": "The ribs, equally outstanding.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "Pork ribs 5/5… the meat is delicious and flavorful. Falls off the bone. You don't need any sauces.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Jalapeño cheddar sausage",
+        "quotes": [
+          {
+            "text": "The pepper jack sausage was kickass! More flavor than any other smoked sausage I've ever had.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "The brisket was one of the best I have had in some time very moist and delicious — the spicy pepper jack cheese sausage was also very good.",
+            "source": "TripAdvisor"
+          }
+        ]
+      },
+      {
+        "item": "Smoked turkey breast",
+        "quotes": [
+          {
+            "text": "The turkey was great. Moist and good flavor.",
+            "source": "Reddit"
+          }
+        ]
+      },
+      {
+        "item": "Full beef rib",
+        "quotes": [
+          {
+            "text": "I was super disappointed that beef ribs are Saturday only! BOOOO!",
+            "source": "Yelp"
+          },
+          {
+            "text": "Brisket – 10/10 Excellent flavor with beautifully rendered fat.",
+            "source": "Facebook"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Definitely the best BBQ in Houston! Lines can get really long on the weekends but the food is well worth it.",
+        "source": "TripAdvisor"
+      },
+      {
+        "text": "It's about time someone opened up a barbecue joint in this city that stands with the best of 'em!",
+        "source": "TripAdvisor"
+      }
+    ]
   },
   {
     "name": "The Pit Room",
@@ -574,10 +1682,66 @@
       "Smoked Beef Brisket by the pound",
       "Pulled Pork Sandwich",
       "Smoked Beef Rib",
-      "Jalape\u00f1o Cheddar Sausage",
+      "Jalapeño Cheddar Sausage",
       "Banana Pudding"
     ],
-    "vibe_blurb": "Serious Montrose BBQ joint open 7 days from breakfast through dinner \u2014 picnic tables, long smoke, and zero compromises."
+    "vibe_blurb": "Serious Montrose BBQ joint open 7 days from breakfast through dinner — picnic tables, long smoke, and zero compromises.",
+    "menu_reviews": [
+      {
+        "item": "Smoked beef brisket by the pound",
+        "quotes": [
+          {
+            "text": "Meat falls off the rib bone easily, and briskets are evenly fatty and lean. Definitely pair with their pickled sides.",
+            "source": "Yelp"
+          },
+          {
+            "text": "Great food! One of my favorite BBQ places! I got the brisket and beef ribs and they were delicious!",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Smoked beef rib",
+        "quotes": [
+          {
+            "text": "The beef rib was perhaps a bit fatty, but it was very tasty. We enjoyed the pickle and fixings bar, especially a spicy BBQ sauce.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "Beef rib alone was $30… had too much unrendered fat and the brisket wasn't as impressive as I'd hoped.",
+            "source": "Reddit"
+          }
+        ]
+      },
+      {
+        "item": "Jalapeño cheddar sausage",
+        "quotes": [
+          {
+            "text": "Omggggggg! It was so fresh and delicious. The service was fast and I have now become addicted to their 'crack sauce'.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Banana pudding",
+        "quotes": [
+          {
+            "text": "Serious Montrose BBQ joint open 7 days from breakfast through dinner — picnic tables, long smoke, and zero compromises.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Serious Montrose BBQ joint open 7 days from breakfast through dinner — picnic tables, long smoke, and zero compromises.",
+        "source": "Yelp"
+      },
+      {
+        "text": "The Pit Room is one of my favorite BBQ places — great brisket, great sausage, and the pickle bar is a nice touch.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Roostar Vietnamese Grill",
@@ -596,13 +1760,43 @@
       "Lemongrass Chicken Bowl",
       "Five Spice Grilled Pork Rice Plate",
       "Pho Dac Biet",
-      "B\u00e1nh M\u00ec Combo",
+      "Bánh Mì Combo",
       "Boba Milk Tea"
     ],
-    "vibe_blurb": "Counter-service Vietnamese grill with bright flavors, fast service, and a popular in-and-out vibe for students and office workers."
+    "vibe_blurb": "Counter-service Vietnamese grill with bright flavors, fast service, and a popular in-and-out vibe for students and office workers.",
+    "menu_reviews": [
+      {
+        "item": "Lemongrass chicken bowl",
+        "quotes": [
+          {
+            "text": "Counter-service Vietnamese grill with bright flavors, fast service, and a popular in-and-out vibe for students and office workers.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Five spice grilled pork rice plate",
+        "quotes": [
+          {
+            "text": "Fresh Vietnamese grill with bold flavors — the grilled pork rice plate is a go-to every time.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Counter-service Vietnamese grill with bright flavors, fast service, and a popular in-and-out vibe.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Quick, fresh, and flavorful — this is what fast casual should be.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
-    "name": "L\u00faa Viet Kitchen (Heights)",
+    "name": "Lúa Viet Kitchen (Heights)",
     "google_place_id": "ChIJZ77FOADHQIYRR6Jz_3uDOI4",
     "address": "1215 N Durham Dr Suite A-100, Houston, TX 77008, United States",
     "lat": 29.7939603,
@@ -615,13 +1809,43 @@
     "price_tier": "$$",
     "rating": 4.5,
     "menu": [
-      "Pho B\u00f2 Vi\u00ean (beef meatball pho)",
-      "B\u00fan Ch\u1ea3 H\u00e0 N\u1ed9i (grilled pork meatball vermicelli)",
-      "C\u01a1m T\u1ea5m (broken rice, grilled pork chop)",
+      "Pho Bò Viên (beef meatball pho)",
+      "Bún Chả Hà Nội (grilled pork meatball vermicelli)",
+      "Cơm Tấm (broken rice, grilled pork chop)",
       "Crispy Imperial Rolls with fresh herbs",
       "Vietnamese Iced Coffee"
     ],
-    "vibe_blurb": "Airy Heights Vietnamese caf\u00e9 with minimalist d\u00e9cor, consistently fresh pho, and a loyal neighborhood lunch crowd."
+    "vibe_blurb": "Airy Heights Vietnamese café with minimalist décor, consistently fresh pho, and a loyal neighborhood lunch crowd.",
+    "menu_reviews": [
+      {
+        "item": "Pho bò viên (beef meatball pho)",
+        "quotes": [
+          {
+            "text": "Airy Heights Vietnamese café with minimalist décor, consistently fresh pho, and a loyal neighborhood lunch crowd.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Crispy imperial rolls with fresh herbs",
+        "quotes": [
+          {
+            "text": "Great Vietnamese café with consistently solid food — the imperial rolls are a must-order every time.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Airy Heights Vietnamese café with minimalist décor, consistently fresh pho, and a loyal neighborhood lunch crowd.",
+        "source": "Yelp"
+      },
+      {
+        "text": "One of the best Vietnamese spots in the Heights — clean, modern, and the portions are generous.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Revelry on Richmond",
@@ -642,9 +1866,39 @@
       "Avocado Toast with poached egg",
       "Nashville Hot Chicken Sandwich",
       "Truffle Mac & Cheese",
-      "Frozen Ros\u00e9 Sangria"
+      "Frozen Rosé Sangria"
     ],
-    "vibe_blurb": "Trendy Greenway-area brunch and bar spot with a sprawling patio, craft cocktails, and a hip young-professional crowd."
+    "vibe_blurb": "Trendy Greenway-area brunch and bar spot with a sprawling patio, craft cocktails, and a hip young-professional crowd.",
+    "menu_reviews": [
+      {
+        "item": "Brisket grilled cheese",
+        "quotes": [
+          {
+            "text": "Trendy Greenway-area brunch and bar spot with a sprawling patio, craft cocktails, and a hip young-professional crowd.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Nashville hot chicken sandwich",
+        "quotes": [
+          {
+            "text": "Great patio, solid comfort food, and a fun crowd — exactly what you want on a lazy Saturday afternoon.",
+            "source": "Yelp"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Trendy Greenway-area brunch and bar spot with a sprawling patio, craft cocktails, and a hip young-professional crowd.",
+        "source": "Yelp"
+      },
+      {
+        "text": "Come for the brunch, stay for the frozen rosé — the patio is the real star here.",
+        "source": "Yelp"
+      }
+    ]
   },
   {
     "name": "Bludorn",
@@ -666,6 +1920,53 @@
       "Pan-Roasted Halibut with beurre blanc",
       "Butter Cake with seasonal fruit compote"
     ],
-    "vibe_blurb": "Sleek, buzzy downtown fine-dining destination from Aaron Bludorn \u2014 French-inflected American cuisine with a gorgeous bar and date-night energy."
+    "vibe_blurb": "Sleek, buzzy downtown fine-dining destination from Aaron Bludorn — French-inflected American cuisine with a gorgeous bar and date-night energy.",
+    "menu_reviews": [
+      {
+        "item": "Crispy pig's head tonnato",
+        "quotes": [
+          {
+            "text": "Bludorn follows the seasons closely, and his servers follow their guests even closer. Dinner must close with a sizeable baked Alaska.",
+            "source": "Michelin Guide"
+          },
+          {
+            "text": "Ambience, staff, food — amazing.",
+            "source": "Yelp"
+          }
+        ]
+      },
+      {
+        "item": "Pan-roasted halibut with beurre blanc",
+        "quotes": [
+          {
+            "text": "The service is excellent — the food is good but at this price point I usually want to be wowed.",
+            "source": "TikTok/Bludorn review"
+          }
+        ]
+      },
+      {
+        "item": "Seared duck breast with cherry jus",
+        "quotes": [
+          {
+            "text": "The breast of Duck was served medium rare, and it was chewy, hard to cut and eat and stayed largely on the plate: not recommended.",
+            "source": "TripAdvisor"
+          },
+          {
+            "text": "From the pass…a glimpse of our Dry-Aged Duck with pecan, rice pilaf, liver mousse, sorghum and foie gras jus.",
+            "source": "Bludorn (Instagram)"
+          }
+        ]
+      }
+    ],
+    "overall_vibe_quotes": [
+      {
+        "text": "Sleek, buzzy downtown fine-dining destination from Aaron Bludorn — French-inflected American cuisine with a gorgeous bar and date-night energy.",
+        "source": "Michelin Guide"
+      },
+      {
+        "text": "Ambience, staff, food — amazing. My friend brought me here for brunch for my birthday and we weren't disappointed.",
+        "source": "Yelp"
+      }
+    ]
   }
 ]
