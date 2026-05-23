@@ -51,9 +51,16 @@ final class APIClient {
         body: Body?,
         token: String?
     ) async throws -> T {
-        let url = path.hasPrefix("http")
-            ? URL(string: path)!
-            : Config.apiBaseURL.appendingPathComponent(path)
+        let url: URL
+        if path.hasPrefix("http") {
+            url = URL(string: path)!
+        } else {
+            // Use string concatenation so query strings ("?foo=bar") aren't percent-encoded.
+            let base = Config.apiBaseURL.absoluteString
+                .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+            let suffix = path.hasPrefix("/") ? path : "/" + path
+            url = URL(string: base + suffix)!
+        }
 
         var req = URLRequest(url: url)
         req.httpMethod = method

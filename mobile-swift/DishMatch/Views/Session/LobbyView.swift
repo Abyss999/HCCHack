@@ -15,7 +15,7 @@ struct LobbyView: View {
 
     private var session: Session? { sessionVM.session }
     private var isHost: Bool { session?.hostUserId == authStore.user?.id }
-    private var canStart: Bool { members.count >= 2 }
+    private var canStart: Bool { members.count >= 1 }
 
     var body: some View {
         ZStack {
