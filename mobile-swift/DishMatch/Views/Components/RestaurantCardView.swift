@@ -74,7 +74,10 @@ struct RestaurantCardView: View {
                     AsyncImage(url: url) { phase in
                         switch phase {
                         case .success(let img):
-                            img.resizable().aspectRatio(contentMode: .fill)
+                            img.resizable()
+                                .scaledToFill()
+                                .frame(height: 280)
+                                .clipped()
                         default:
                             theme.surface
                         }

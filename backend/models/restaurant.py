@@ -17,6 +17,9 @@ class Restaurant(Document):
     lat: float
     lng: float
     description: str | None = None  # editorial_summary from Places Details (cached, single API call)
+    reviews: list[str] | None = None          # top 3 review text snippets from Places Details
+    vibe_blurb: str | None = None             # Gemini-generated atmosphere summary
+    overall_vibe_quotes: list[str] | None = None  # 2-3 short quotes Gemini picks from reviews
 
     class Settings:
         name = "restaurants"

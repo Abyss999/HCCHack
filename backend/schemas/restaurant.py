@@ -15,3 +15,6 @@ class RestaurantOut(BaseModel):
     lat: float
     lng: float
     description: str | None = None
+    reviews: list[str] | None = None
+    vibe_blurb: str | None = None
+    overall_vibe_quotes: list[str] | None = None
